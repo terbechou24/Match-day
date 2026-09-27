@@ -1,160 +1,914 @@
-name: Update football matches
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-on:
-  schedule:
-    # كل 3 ساعات
-    - cron: "0 */3 * * *"
+<title>Match Live - مباريات اليوم</title>
 
-  # يسمح لك بتشغيله يدويًا أيضًا
-  workflow_dispatch:
+<style>
 
-permissions:
-  contents: write
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-jobs:
+body{
+    font-family:Arial,Tahoma,sans-serif;
+    background:
+        radial-gradient(circle at top,#162033 0,#070a10 45%);
+    color:#fff;
+    min-height:100vh;
+}
 
-  update-matches:
+/* ===== HEADER ===== */
 
-    runs-on: ubuntu-latest
+header{
+    padding:25px 15px 20px;
+    text-align:center;
+    background:rgba(10,15,24,.9);
+    border-bottom:1px solid #202938;
+    position:sticky;
+    top:0;
+    z-index:10;
+    backdrop-filter:blur(10px);
+}
 
-    steps:
+.logo{
+    font-size:29px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
 
-      # =========================
-      # تحميل المستودع
-      # =========================
+.logo span{
+    color:#20e58a;
+}
 
-      - name: Download repository
-        uses: actions/checkout@v4
+.subtitle{
+    margin-top:7px;
+    color:#9ca3af;
+    font-size:13px;
+}
+
+.date{
+    margin-top:6px;
+    color:#20e58a;
+    font-size:13px;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:100%;
+    max-width:700px;
+    margin:auto;
+    padding:15px;
+}
+
+.section-title{
+    font-size:21px;
+    margin:15px 0;
+}
+
+.tunis-time{
+    background:#111722;
+    border:1px solid #202938;
+    border-radius:12px;
+    padding:10px;
+    text-align:center;
+    color:#d1d5db;
+    margin-bottom:15px;
+    font-size:13px;
+}
+
+/* ===== MATCH CARD ===== */
+
+.match{
+    background:linear-gradient(145deg,#121925,#0d131d);
+    border:1px solid #202938;
+    border-radius:18px;
+    padding:16px;
+    margin-bottom:14px;
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+    transition:.2s;
+}
+
+.match:hover{
+    transform:translateY(-2px);
+    border-color:#20e58a;
+}
+
+.league{
+    text-align:center;
+    color:#9ca3af;
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+/* ===== TEAMS ===== */
+
+.teams{
+    display:grid;
+    grid-template-columns:1fr 90px 1fr;
+    align-items:center;
+    text-align:center;
+}
+
+.team{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+}
+
+.team img{
+    width:58px;
+    height:58px;
+    object-fit:contain;
+    background:#1b2432;
+    border-radius:50%;
+    padding:7px;
+    border:1px solid #293241;
+}
+
+.team-name{
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* ===== CENTER ===== */
+
+.center{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:7px;
+}
+
+.time{
+    font-size:21px;
+    font-weight:800;
+}
+
+.time-label{
+    color:#9ca3af;
+    font-size:10px;
+}
+
+.status{
+    background:#293241;
+    color:#d1d5db;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:10px;
+}
+
+.live{
+    background:#e11d48;
+    color:#fff;
+    animation:pulse 1.3s infinite;
+}
+
+.finished{
+    background:#374151;
+    color:#d1d5db;
+}
+
+@keyframes pulse{
+    50%{
+        opacity:.55;
+    }
+}
+
+/* ===== WATCH BUTTON ===== */
+
+.watch{
+    display:block;
+    width:100%;
+    margin-top:16px;
+    padding:13px;
+    border-radius:11px;
+    background:#20e58a;
+    color:#06110b;
+    text-align:center;
+    text-decoration:none;
+    font-weight:800;
+    font-size:14px;
+    transition:.2s;
+}
+
+.watch:hover{
+    background:#39f19b;
+    transform:scale(1.01);
+}
+
+.watch-disabled{
+    background:#293241;
+    color:#9ca3af;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    text-align:center;
+    padding:30px 15px;
+    color:#6b7280;
+    font-size:12px;
+    line-height:1.8;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:420px){
+
+    .teams{
+        grid-template-columns:1fr 75px 1fr;
+    }
+
+    .team img{
+        width:48px;
+        height:48px;
+    }
+
+    .team-name{
+        font-size:13px;
+    }
+
+    .time{
+        font-size:18px;
+    }
+
+    .logo{
+        font-size:25px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        ⚽ <span>Match</span> Live
+    </div>
+
+    <div class="subtitle">
+        مباريات اليوم بتوقيت تونس 🇹🇳
+    </div>
+
+    <div class="date" id="todayDate">
+        جاري تحميل التاريخ...
+    </div>
+
+</header>
 
 
-      # =========================
-      # جلب مباريات اليوم
-      # =========================
+<main class="container">
 
-      - name: Get today's matches
+    <div class="tunis-time">
+        🕐 توقيت تونس الآن:
+        <strong id="currentTime">--:--</strong>
+    </div>
 
-        env:
-          API_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-
-        run: |
-
-          # تاريخ اليوم بتوقيت تونس
-          DATE=$(TZ=Africa/Tunis date +%Y-%m-%d)
-
-          echo "Today's date: $DATE"
-
-          # طلب مباريات اليوم
-          curl --fail --silent --show-error \
-            -H "x-apisports-key: $API_KEY" \
-            "https://v3.football.api-sports.io/fixtures?date=$DATE&timezone=Africa/Tunis" \
-            -o api-response.json
+    <h2 class="section-title">
+        🔥 أهم مباريات اليوم
+    </h2>
 
 
-      # =========================
-      # تحويل البيانات إلى ملف
-      # =========================
+    <!-- ================= MATCH 1 ================= -->
 
-      - name: Create matches.json
+    <div class="match">
 
-        run: |
+        <div class="league">
+            UEFA Nations League
+        </div>
 
-          python3 <<'PY'
+        <div class="teams">
 
-          import json
+            <div class="team">
 
-          with open("api-response.json", "r", encoding="utf-8") as f:
-              data = json.load(f)
+                <img
+                    src="https://flagcdn.com/w80/rs.png"
+                    alt="صربيا">
 
-          matches = []
+                <div class="team-name">
+                    صربيا
+                </div>
 
-          for item in data.get("response", []):
-
-              fixture = item.get("fixture", {})
-              league = item.get("league", {})
-              teams = item.get("teams", {})
-              goals = item.get("goals", {})
-
-              home = teams.get("home", {})
-              away = teams.get("away", {})
-
-              status = fixture.get("status", {})
-
-              matches.append({
-
-                  "id": fixture.get("id"),
-
-                  "date": fixture.get("date"),
-
-                  "timestamp": fixture.get("timestamp"),
-
-                  "league": {
-                      "id": league.get("id"),
-                      "name": league.get("name"),
-                      "country": league.get("country"),
-                      "logo": league.get("logo")
-                  },
-
-                  "home": {
-                      "id": home.get("id"),
-                      "name": home.get("name"),
-                      "logo": home.get("logo")
-                  },
-
-                  "away": {
-                      "id": away.get("id"),
-                      "name": away.get("name"),
-                      "logo": away.get("logo")
-                  },
-
-                  "goals": {
-                      "home": goals.get("home"),
-                      "away": goals.get("away")
-                  },
-
-                  "status": {
-                      "short": status.get("short"),
-                      "long": status.get("long"),
-                      "elapsed": status.get("elapsed")
-                  }
-
-              })
+            </div>
 
 
-          output = {
-              "updated_at": data.get("parameters", {}),
-              "matches": matches
-          }
+            <div class="center">
+
+                <div class="time">
+                    18:00
+                </div>
+
+                <div class="time-label">
+                    بتوقيت تونس
+                </div>
+
+                <div class="status">
+                    لم تبدأ
+                </div>
+
+            </div>
 
 
-          with open("matches.json", "w", encoding="utf-8") as f:
+            <div class="team">
 
-              json.dump(
-                  output,
-                  f,
-                  ensure_ascii=False,
-                  indent=2
-              )
+                <img
+                    src="https://flagcdn.com/w80/nl.png"
+                    alt="هولندا">
 
-          print("Matches found:", len(matches))
+                <div class="team-name">
+                    هولندا
+                </div>
 
-          PY
+            </div>
+
+        </div>
 
 
-      # =========================
-      # حفظ البيانات في GitHub
-      # =========================
+        <a
+            class="watch"
+            href="https://connect.beinsports.com/"
+            target="_blank"
+            rel="noopener">
 
-      - name: Save matches
+            🔴 المشاهدة الرسمية
 
-        run: |
+        </a>
 
-          git config user.name "github-actions[bot]"
+    </div>
 
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add matches.json
+    <!-- ================= MATCH 2 ================= -->
 
-          git diff --cached --quiet || \
-            git commit -m "Update today's matches"
+    <div class="match">
 
-          git push
+        <div class="league">
+            UEFA Nations League
+        </div>
+
+        <div class="teams">
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/dk.png"
+                    alt="الدنمارك">
+
+                <div class="team-name">
+                    الدنمارك
+                </div>
+
+            </div>
+
+
+            <div class="center">
+
+                <div class="time">
+                    18:00
+                </div>
+
+                <div class="time-label">
+                    بتوقيت تونس
+                </div>
+
+                <div class="status">
+                    لم تبدأ
+                </div>
+
+            </div>
+
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/gb-wls.png"
+                    alt="ويلز">
+
+                <div class="team-name">
+                    ويلز
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="watch"
+            href="https://connect.beinsports.com/"
+            target="_blank"
+            rel="noopener">
+
+            🔴 المشاهدة الرسمية
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= MATCH 3 ================= -->
+
+    <div class="match">
+
+        <div class="league">
+            UEFA Nations League
+        </div>
+
+        <div class="teams">
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/at.png"
+                    alt="النمسا">
+
+                <div class="team-name">
+                    النمسا
+                </div>
+
+            </div>
+
+
+            <div class="center">
+
+                <div class="time">
+                    18:00
+                </div>
+
+                <div class="time-label">
+                    بتوقيت تونس
+                </div>
+
+                <div class="status">
+                    لم تبدأ
+                </div>
+
+            </div>
+
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/xk.png"
+                    alt="كوسوفو">
+
+                <div class="team-name">
+                    كوسوفو
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="watch"
+            href="https://connect.beinsports.com/"
+            target="_blank"
+            rel="noopener">
+
+            🔴 المشاهدة الرسمية
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= MATCH 4 ================= -->
+
+    <div class="match">
+
+        <div class="league">
+            UEFA Nations League
+        </div>
+
+        <div class="teams">
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/de.png"
+                    alt="ألمانيا">
+
+                <div class="team-name">
+                    ألمانيا
+                </div>
+
+            </div>
+
+
+            <div class="center">
+
+                <div class="time">
+                    20:45
+                </div>
+
+                <div class="time-label">
+                    بتوقيت تونس
+                </div>
+
+                <div class="status">
+                    لم تبدأ
+                </div>
+
+            </div>
+
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/gr.png"
+                    alt="اليونان">
+
+                <div class="team-name">
+                    اليونان
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="watch"
+            href="https://connect.beinsports.com/"
+            target="_blank"
+            rel="noopener">
+
+            🔴 المشاهدة الرسمية
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= MATCH 5 ================= -->
+
+    <div class="match">
+
+        <div class="league">
+            UEFA Nations League
+        </div>
+
+        <div class="teams">
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/no.png"
+                    alt="النرويج">
+
+                <div class="team-name">
+                    النرويج
+                </div>
+
+            </div>
+
+
+            <div class="center">
+
+                <div class="time">
+                    20:45
+                </div>
+
+                <div class="time-label">
+                    بتوقيت تونس
+                </div>
+
+                <div class="status">
+                    لم تبدأ
+                </div>
+
+            </div>
+
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/pt.png"
+                    alt="البرتغال">
+
+                <div class="team-name">
+                    البرتغال
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="watch"
+            href="https://connect.beinsports.com/"
+            target="_blank"
+            rel="noopener">
+
+            🔴 المشاهدة الرسمية
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= MATCH 6 ================= -->
+
+    <div class="match">
+
+        <div class="league">
+            UEFA Nations League
+        </div>
+
+        <div class="teams">
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/il.png"
+                    alt="إسرائيل">
+
+                <div class="team-name">
+                    إسرائيل
+                </div>
+
+            </div>
+
+
+            <div class="center">
+
+                <div class="time">
+                    20:45
+                </div>
+
+                <div class="time-label">
+                    بتوقيت تونس
+                </div>
+
+                <div class="status">
+                    لم تبدأ
+                </div>
+
+            </div>
+
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/ie.png"
+                    alt="أيرلندا">
+
+                <div class="team-name">
+                    أيرلندا
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="watch"
+            href="https://connect.beinsports.com/"
+            target="_blank"
+            rel="noopener">
+
+            🔴 المشاهدة الرسمية
+
+        </a>
+
+    </div>
+
+
+</main>
+
+
+<footer>
+
+    ⚽ Match Live © 2026
+
+    <br>
+
+    جميع أوقات المباريات معروضة بتوقيت تونس 🇹🇳
+
+</footer>
+
+
+<script>
+
+/* ==========================================
+   توقيت تونس
+========================================== */
+
+function updateTunisiaTime(){
+
+    const now = new Date();
+
+    const options = {
+        timeZone: "Africa/Tunis",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+    };
+
+    const time = new Intl.DateTimeFormat(
+        "fr-FR",
+        options
+    ).format(now);
+
+    document.getElementById(
+        "currentTime"
+    ).textContent = time;
+
+}
+
+updateTunisiaTime();
+
+setInterval(
+    updateTunisiaTime,
+    1000
+);
+
+
+/* ==========================================
+   تاريخ اليوم بتوقيت تونس
+========================================== */
+
+function updateDate(){
+
+    const now = new Date();
+
+    const options = {
+        timeZone: "Africa/Tunis",
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    };
+
+    const date = new Intl.DateTimeFormat(
+        "ar-TN",
+        options
+    ).format(now);
+
+    document.getElementById(
+        "todayDate"
+    ).textContent = date;
+
+}
+
+updateDate();
+
+
+/* ==========================================
+   تحديث حالة المباريات
+========================================== */
+
+function updateMatchStatus(){
+
+    const now = new Date();
+
+    const tunisNow = new Intl.DateTimeFormat(
+        "en-US",
+        {
+            timeZone:"Africa/Tunis",
+            hour:"2-digit",
+            minute:"2-digit",
+            hour12:false
+        }
+    ).formatToParts(now);
+
+    let hour = 0;
+    let minute = 0;
+
+    tunisNow.forEach(part => {
+
+        if(part.type === "hour"){
+            hour = Number(part.value);
+        }
+
+        if(part.type === "minute"){
+            minute = Number(part.value);
+        }
+
+    });
+
+    const currentMinutes =
+        hour * 60 + minute;
+
+
+    const matches = document.querySelectorAll(
+        ".match"
+    );
+
+
+    matches.forEach(match => {
+
+        const timeElement =
+            match.querySelector(".time");
+
+        const statusElement =
+            match.querySelector(".status");
+
+        if(!timeElement || !statusElement){
+            return;
+        }
+
+        const matchTime =
+            timeElement.textContent.trim();
+
+        const parts =
+            matchTime.split(":");
+
+        const matchHour =
+            Number(parts[0]);
+
+        const matchMinute =
+            Number(parts[1]);
+
+        const matchMinutes =
+            matchHour * 60 + matchMinute;
+
+
+        /*
+          قبل المباراة
+        */
+
+        if(
+            currentMinutes <
+            matchMinutes
+        ){
+
+            statusElement.textContent =
+                "لم تبدأ";
+
+            statusElement.classList.remove(
+                "live",
+                "finished"
+            );
+
+            return;
+        }
+
+
+        /*
+          نفترض مدة المباراة حوالي ساعتين
+        */
+
+        if(
+            currentMinutes >= matchMinutes &&
+            currentMinutes <= matchMinutes + 120
+        ){
+
+            statusElement.textContent =
+                "🔴 مباشر";
+
+            statusElement.classList.add(
+                "live"
+            );
+
+            statusElement.classList.remove(
+                "finished"
+            );
+
+            return;
+        }
+
+
+        /*
+          بعد المباراة
+        */
+
+        statusElement.textContent =
+            "انتهت";
+
+        statusElement.classList.remove(
+            "live"
+        );
+
+        statusElement.classList.add(
+            "finished"
+        );
+
+    });
+
+}
+
+updateMatchStatus();
+
+setInterval(
+    updateMatchStatus,
+    30000
+);
+
+</script>
+
+</body>
+</html>
