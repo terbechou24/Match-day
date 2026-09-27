@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مباريات اليوم</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      background: #020617;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #1e293b;
+    }
+
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: #94a3b8;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 15px;
+    }
+
+    .title {
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    .match {
+      background: #1e293b;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .league {
+      color: #38bdf8;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .teams {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .time {
+      margin: 15px 0;
+      color: #facc15;
+      font-size: 18px;
+    }
+
+    .watch {
+      display: inline-block;
+      background: #16a34a;
+      color: white;
+      text-decoration: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .watch:hover {
+      background: #15803d;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #64748b;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>⚽ مباريات اليوم</h1>
+    <p>تابع جدول مباريات اليوم بسهولة</p>
+  </header>
+
+  <main class="container">
+
+    <h2 class="title">🔥 مباريات اليوم</h2>
+
+    <div class="match">
+      <div class="league">🏆 البطولة</div>
+
+      <div class="teams">
+        <span>الفريق الأول</span>
+        <span>🆚</span>
+        <span>الفريق الثاني</span>
+      </div>
+
+      <div class="time">
+        ⏰ 20:00
+      </div>
+
+      <a href="#" class="watch">
+        📺 مشاهدة
+      </a>
+    </div>
+
+    <div class="match">
+      <div class="league">🏆 بطولة أخرى</div>
+
+      <div class="teams">
+        <span>الفريق الثالث</span>
+        <span>🆚</span>
+        <span>الفريق الرابع</span>
+      </div>
+
+      <div class="time">
+        ⏰ 22:00
+      </div>
+
+      <a href="#" class="watch">
+        📺 مشاهدة
+      </a>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2026 مباريات اليوم
+  </footer>
+
+</body>
+</html>
