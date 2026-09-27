@@ -1,530 +1,912 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>مباريات اليوم | Match Live</title>
+<title>Match Live - مباريات اليوم</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Tahoma,sans-serif;
+    background:
+        radial-gradient(circle at top,#162033 0,#070a10 45%);
+    color:#fff;
+    min-height:100vh;
+}
+
+/* ===== HEADER ===== */
+
+header{
+    padding:25px 15px 20px;
+    text-align:center;
+    background:rgba(10,15,24,.9);
+    border-bottom:1px solid #202938;
+    position:sticky;
+    top:0;
+    z-index:10;
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:29px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+.logo span{
+    color:#20e58a;
+}
+
+.subtitle{
+    margin-top:7px;
+    color:#9ca3af;
+    font-size:13px;
+}
+
+.date{
+    margin-top:6px;
+    color:#20e58a;
+    font-size:13px;
+}
+
+/* ===== CONTAINER ===== */
+
+.container{
+    width:100%;
+    max-width:700px;
+    margin:auto;
+    padding:15px;
+}
+
+.section-title{
+    font-size:21px;
+    margin:15px 0;
+}
+
+.tunis-time{
+    background:#111722;
+    border:1px solid #202938;
+    border-radius:12px;
+    padding:10px;
+    text-align:center;
+    color:#d1d5db;
+    margin-bottom:15px;
+    font-size:13px;
+}
+
+/* ===== MATCH CARD ===== */
+
+.match{
+    background:linear-gradient(145deg,#121925,#0d131d);
+    border:1px solid #202938;
+    border-radius:18px;
+    padding:16px;
+    margin-bottom:14px;
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+    transition:.2s;
+}
+
+.match:hover{
+    transform:translateY(-2px);
+    border-color:#20e58a;
+}
+
+.league{
+    text-align:center;
+    color:#9ca3af;
+    font-size:12px;
+    margin-bottom:15px;
+}
+
+/* ===== TEAMS ===== */
+
+.teams{
+    display:grid;
+    grid-template-columns:1fr 90px 1fr;
+    align-items:center;
+    text-align:center;
+}
+
+.team{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+}
+
+.team img{
+    width:58px;
+    height:58px;
+    object-fit:contain;
+    background:#1b2432;
+    border-radius:50%;
+    padding:7px;
+    border:1px solid #293241;
+}
+
+.team-name{
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* ===== CENTER ===== */
+
+.center{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:7px;
+}
+
+.time{
+    font-size:21px;
+    font-weight:800;
+}
+
+.time-label{
+    color:#9ca3af;
+    font-size:10px;
+}
+
+.status{
+    background:#293241;
+    color:#d1d5db;
+    padding:5px 10px;
+    border-radius:20px;
+    font-size:10px;
+}
+
+.live{
+    background:#e11d48;
+    color:#fff;
+    animation:pulse 1.3s infinite;
+}
+
+.finished{
+    background:#374151;
+    color:#d1d5db;
+}
+
+@keyframes pulse{
+    50%{
+        opacity:.55;
+    }
+}
+
+/* ===== WATCH BUTTON ===== */
+
+.watch{
+    display:block;
+    width:100%;
+    margin-top:16px;
+    padding:13px;
+    border-radius:11px;
+    background:#20e58a;
+    color:#06110b;
+    text-align:center;
+    text-decoration:none;
+    font-weight:800;
+    font-size:14px;
+    transition:.2s;
+}
+
+.watch:hover{
+    background:#39f19b;
+    transform:scale(1.01);
+}
+
+.watch-disabled{
+    background:#293241;
+    color:#9ca3af;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+    text-align:center;
+    padding:30px 15px;
+    color:#6b7280;
+    font-size:12px;
+    line-height:1.8;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:420px){
+
+    .teams{
+        grid-template-columns:1fr 75px 1fr;
     }
 
-    body {
-      font-family: Arial, Tahoma, sans-serif;
-      background: #080b12;
-      color: #fff;
-      min-height: 100vh;
+    .team img{
+        width:48px;
+        height:48px;
     }
 
-    header {
-      background: linear-gradient(135deg, #111827, #0b1220);
-      padding: 22px 15px;
-      text-align: center;
-      border-bottom: 1px solid #202938;
+    .team-name{
+        font-size:13px;
     }
 
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-      margin-bottom: 8px;
+    .time{
+        font-size:18px;
     }
 
-    .logo span {
-      color: #20e58a;
+    .logo{
+        font-size:25px;
     }
+}
 
-    .date {
-      color: #9ca3af;
-      font-size: 14px;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 700px;
-      margin: auto;
-      padding: 15px;
-    }
-
-    .section-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 20px 0 12px;
-    }
-
-    .section-title h2 {
-      font-size: 19px;
-    }
-
-    .section-title span {
-      color: #20e58a;
-      font-size: 13px;
-    }
-
-    .match-card {
-      background: #111722;
-      border: 1px solid #202938;
-      border-radius: 16px;
-      margin-bottom: 12px;
-      padding: 15px;
-      transition: .2s;
-    }
-
-    .match-card:hover {
-      border-color: #20e58a;
-      transform: translateY(-1px);
-    }
-
-    .league {
-      text-align: center;
-      color: #9ca3af;
-      font-size: 12px;
-      margin-bottom: 12px;
-    }
-
-    .teams {
-      display: grid;
-      grid-template-columns: 1fr 90px 1fr;
-      align-items: center;
-      text-align: center;
-      gap: 5px;
-    }
-
-    .team {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .team img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      border-radius: 50%;
-      background: #1a2230;
-      padding: 5px;
-    }
-
-    .team-name {
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 1.3;
-    }
-
-    .time-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 7px;
-    }
-
-    .time {
-      font-size: 21px;
-      font-weight: bold;
-    }
-
-    .status {
-      font-size: 11px;
-      padding: 5px 10px;
-      border-radius: 20px;
-      background: #283141;
-      color: #d1d5db;
-    }
-
-    .status.live {
-      background: #e11d48;
-      color: white;
-      animation: pulse 1.4s infinite;
-    }
-
-    .status.finished {
-      background: #374151;
-    }
-
-    @keyframes pulse {
-      0% { opacity: 1; }
-      50% { opacity: .55; }
-      100% { opacity: 1; }
-    }
-
-    .watch-btn {
-      width: 100%;
-      margin-top: 14px;
-      border: 0;
-      background: #20e58a;
-      color: #06110b;
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: bold;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .watch-btn:hover {
-      background: #35f09a;
-    }
-
-    .empty {
-      text-align: center;
-      color: #9ca3af;
-      padding: 35px 10px;
-    }
-
-    footer {
-      text-align: center;
-      color: #6b7280;
-      padding: 25px 10px;
-      font-size: 12px;
-    }
-
-    @media (max-width: 420px) {
-      .teams {
-        grid-template-columns: 1fr 75px 1fr;
-      }
-
-      .team img {
-        width: 45px;
-        height: 45px;
-      }
-
-      .team-name {
-        font-size: 13px;
-      }
-
-      .time {
-        font-size: 18px;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">⚽ <span>Match</span> Live</div>
-  <div class="date" id="todayDate">مباريات اليوم</div>
+
+    <div class="logo">
+        ⚽ <span>Match</span> Live
+    </div>
+
+    <div class="subtitle">
+        مباريات اليوم بتوقيت تونس 🇹🇳
+    </div>
+
+    <div class="date" id="todayDate">
+        جاري تحميل التاريخ...
+    </div>
+
 </header>
+
 
 <main class="container">
 
-  <div class="section-title">
-    <h2>🔥 أهم مباريات اليوم</h2>
-    <span id="matchCount">0 مباراة</span>
-  </div>
+    <div class="tunis-time">
+        🕐 توقيت تونس الآن:
+        <strong id="currentTime">--:--</strong>
+    </div>
 
-  <div id="importantMatches"></div>
+    <h2 class="section-title">
+        🔥 أهم مباريات اليوم
+    </h2>
 
-  <div class="section-title">
-    <h2>⚽ جميع مباريات اليوم</h2>
-  </div>
 
-  <div id="allMatches"></div>
+    <!-- ================= MATCH 1 ================= -->
+
+    <div class="match">
+
+        <div class="league">
+            UEFA Nations League
+        </div>
+
+        <div class="teams">
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/rs.png"
+                    alt="صربيا">
+
+                <div class="team-name">
+                    صربيا
+                </div>
+
+            </div>
+
+
+            <div class="center">
+
+                <div class="time">
+                    18:00
+                </div>
+
+                <div class="time-label">
+                    بتوقيت تونس
+                </div>
+
+                <div class="status">
+                    لم تبدأ
+                </div>
+
+            </div>
+
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/nl.png"
+                    alt="هولندا">
+
+                <div class="team-name">
+                    هولندا
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="watch"
+            href="https://connect.beinsports.com/"
+            target="_blank"
+            rel="noopener">
+
+            🔴 المشاهدة الرسمية
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= MATCH 2 ================= -->
+
+    <div class="match">
+
+        <div class="league">
+            UEFA Nations League
+        </div>
+
+        <div class="teams">
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/dk.png"
+                    alt="الدنمارك">
+
+                <div class="team-name">
+                    الدنمارك
+                </div>
+
+            </div>
+
+
+            <div class="center">
+
+                <div class="time">
+                    18:00
+                </div>
+
+                <div class="time-label">
+                    بتوقيت تونس
+                </div>
+
+                <div class="status">
+                    لم تبدأ
+                </div>
+
+            </div>
+
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/gb-wls.png"
+                    alt="ويلز">
+
+                <div class="team-name">
+                    ويلز
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="watch"
+            href="https://connect.beinsports.com/"
+            target="_blank"
+            rel="noopener">
+
+            🔴 المشاهدة الرسمية
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= MATCH 3 ================= -->
+
+    <div class="match">
+
+        <div class="league">
+            UEFA Nations League
+        </div>
+
+        <div class="teams">
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/at.png"
+                    alt="النمسا">
+
+                <div class="team-name">
+                    النمسا
+                </div>
+
+            </div>
+
+
+            <div class="center">
+
+                <div class="time">
+                    18:00
+                </div>
+
+                <div class="time-label">
+                    بتوقيت تونس
+                </div>
+
+                <div class="status">
+                    لم تبدأ
+                </div>
+
+            </div>
+
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/xk.png"
+                    alt="كوسوفو">
+
+                <div class="team-name">
+                    كوسوفو
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="watch"
+            href="https://connect.beinsports.com/"
+            target="_blank"
+            rel="noopener">
+
+            🔴 المشاهدة الرسمية
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= MATCH 4 ================= -->
+
+    <div class="match">
+
+        <div class="league">
+            UEFA Nations League
+        </div>
+
+        <div class="teams">
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/de.png"
+                    alt="ألمانيا">
+
+                <div class="team-name">
+                    ألمانيا
+                </div>
+
+            </div>
+
+
+            <div class="center">
+
+                <div class="time">
+                    20:45
+                </div>
+
+                <div class="time-label">
+                    بتوقيت تونس
+                </div>
+
+                <div class="status">
+                    لم تبدأ
+                </div>
+
+            </div>
+
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/gr.png"
+                    alt="اليونان">
+
+                <div class="team-name">
+                    اليونان
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="watch"
+            href="https://connect.beinsports.com/"
+            target="_blank"
+            rel="noopener">
+
+            🔴 المشاهدة الرسمية
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= MATCH 5 ================= -->
+
+    <div class="match">
+
+        <div class="league">
+            UEFA Nations League
+        </div>
+
+        <div class="teams">
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/no.png"
+                    alt="النرويج">
+
+                <div class="team-name">
+                    النرويج
+                </div>
+
+            </div>
+
+
+            <div class="center">
+
+                <div class="time">
+                    20:45
+                </div>
+
+                <div class="time-label">
+                    بتوقيت تونس
+                </div>
+
+                <div class="status">
+                    لم تبدأ
+                </div>
+
+            </div>
+
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/pt.png"
+                    alt="البرتغال">
+
+                <div class="team-name">
+                    البرتغال
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="watch"
+            href="https://connect.beinsports.com/"
+            target="_blank"
+            rel="noopener">
+
+            🔴 المشاهدة الرسمية
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= MATCH 6 ================= -->
+
+    <div class="match">
+
+        <div class="league">
+            UEFA Nations League
+        </div>
+
+        <div class="teams">
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/il.png"
+                    alt="إسرائيل">
+
+                <div class="team-name">
+                    إسرائيل
+                </div>
+
+            </div>
+
+
+            <div class="center">
+
+                <div class="time">
+                    20:45
+                </div>
+
+                <div class="time-label">
+                    بتوقيت تونس
+                </div>
+
+                <div class="status">
+                    لم تبدأ
+                </div>
+
+            </div>
+
+
+            <div class="team">
+
+                <img
+                    src="https://flagcdn.com/w80/ie.png"
+                    alt="أيرلندا">
+
+                <div class="team-name">
+                    أيرلندا
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a
+            class="watch"
+            href="https://connect.beinsports.com/"
+            target="_blank"
+            rel="noopener">
+
+            🔴 المشاهدة الرسمية
+
+        </a>
+
+    </div>
+
 
 </main>
 
+
 <footer>
-  جميع الحقوق محفوظة © Match Live
+
+    ⚽ Match Live © 2026
+
+    <br>
+
+    جميع أوقات المباريات معروضة بتوقيت تونس 🇹🇳
+
 </footer>
+
 
 <script>
 
-const fallbackMatches = [
-  {
-    league: "دوري الأمم الأوروبية - المستوى الأول",
-    home: "صربيا",
-    away: "هولندا",
-    homeLogo: "https://flagcdn.com/w80/rs.png",
-    awayLogo: "https://flagcdn.com/w80/nl.png",
-    time: "19:00",
-    status: "لم تبدأ",
-    important: true
-  },
+/* ==========================================
+   توقيت تونس
+========================================== */
 
-  {
-    league: "دوري الأمم الأوروبية - المستوى الأول",
-    home: "الدنمارك",
-    away: "ويلز",
-    homeLogo: "https://flagcdn.com/w80/dk.png",
-    awayLogo: "https://flagcdn.com/w80/gb-wls.png",
-    time: "19:00",
-    status: "لم تبدأ",
-    important: true
-  },
+function updateTunisiaTime(){
 
-  {
-    league: "دوري الأمم الأوروبية - المستوى الأول",
-    home: "ألمانيا",
-    away: "اليونان",
-    homeLogo: "https://flagcdn.com/w80/de.png",
-    awayLogo: "https://flagcdn.com/w80/gr.png",
-    time: "21:45",
-    status: "لم تبدأ",
-    important: true
-  },
+    const now = new Date();
 
-  {
-    league: "دوري الأمم الأوروبية - المستوى الأول",
-    home: "النرويج",
-    away: "البرتغال",
-    homeLogo: "https://flagcdn.com/w80/no.png",
-    awayLogo: "https://flagcdn.com/w80/pt.png",
-    time: "21:45",
-    status: "لم تبدأ",
-    important: true
-  },
+    const options = {
+        timeZone: "Africa/Tunis",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+    };
 
-  {
-    league: "تصفيات كأس أمم إفريقيا تحت 20",
-    home: "تونس U20",
-    away: "المغرب U20",
-    homeLogo: "https://flagcdn.com/w80/tn.png",
-    awayLogo: "https://flagcdn.com/w80/ma.png",
-    time: "20:00",
-    status: "لم تبدأ",
-    important: true
-  },
+    const time = new Intl.DateTimeFormat(
+        "fr-FR",
+        options
+    ).format(now);
 
-  {
-    league: "تصفيات كأس أمم إفريقيا تحت 20",
-    home: "ليبيا U20",
-    away: "الجزائر U20",
-    homeLogo: "https://flagcdn.com/w80/ly.png",
-    awayLogo: "https://flagcdn.com/w80/dz.png",
-    time: "16:30",
-    status: "لم تبدأ",
-    important: false
-  },
+    document.getElementById(
+        "currentTime"
+    ).textContent = time;
 
-  {
-    league: "خليجي 27",
-    home: "البحرين",
-    away: "الإمارات",
-    homeLogo: "https://flagcdn.com/w80/bh.png",
-    awayLogo: "https://flagcdn.com/w80/ae.png",
-    time: "21:00",
-    status: "لم تبدأ",
-    important: true
-  },
-
-  {
-    league: "خليجي 27",
-    home: "اليمن",
-    away: "قطر",
-    homeLogo: "https://flagcdn.com/w80/ye.png",
-    awayLogo: "https://flagcdn.com/w80/qa.png",
-    time: "18:55",
-    status: "لم تبدأ",
-    important: false
-  },
-
-  {
-    league: "مباريات ودية دولية",
-    home: "الأردن",
-    away: "سوريا",
-    homeLogo: "https://flagcdn.com/w80/jo.png",
-    awayLogo: "https://flagcdn.com/w80/sy.png",
-    time: "20:00",
-    status: "لم تبدأ",
-    important: false
-  }
-];
-
-
-// إنشاء بطاقة المباراة
-function createMatch(match) {
-
-  let statusClass = "";
-
-  if (
-    match.status === "مباشر" ||
-    match.status === "LIVE"
-  ) {
-    statusClass = "live";
-  }
-
-  if (
-    match.status === "انتهت" ||
-    match.status === "FINISHED"
-  ) {
-    statusClass = "finished";
-  }
-
-  return `
-    <div class="match-card">
-
-      <div class="league">
-        ${match.league || "مباراة كرة قدم"}
-      </div>
-
-      <div class="teams">
-
-        <div class="team">
-          <img
-            src="${match.homeLogo || 'https://flagcdn.com/w80/un.png'}"
-            alt="${match.home}"
-            onerror="this.src='https://flagcdn.com/w80/un.png'"
-          >
-
-          <div class="team-name">
-            ${match.home}
-          </div>
-        </div>
-
-        <div class="time-box">
-
-          <div class="time">
-            ${match.time || "--:--"}
-          </div>
-
-          <div class="status ${statusClass}">
-            ${match.status || "لم تبدأ"}
-          </div>
-
-        </div>
-
-        <div class="team">
-
-          <img
-            src="${match.awayLogo || 'https://flagcdn.com/w80/un.png'}"
-            alt="${match.away}"
-            onerror="this.src='https://flagcdn.com/w80/un.png'"
-          >
-
-          <div class="team-name">
-            ${match.away}
-          </div>
-
-        </div>
-
-      </div>
-
-      ${
-        match.watchUrl
-        ?
-        `<a href="${match.watchUrl}" target="_blank" rel="noopener">
-          <button class="watch-btn">
-            ▶ مشاهدة المباراة
-          </button>
-        </a>`
-        :
-        ""
-      }
-
-    </div>
-  `;
 }
 
+updateTunisiaTime();
 
-// عرض المباريات
-function renderMatches(matches) {
+setInterval(
+    updateTunisiaTime,
+    1000
+);
 
-  const importantContainer =
-    document.getElementById("importantMatches");
 
-  const allContainer =
-    document.getElementById("allMatches");
+/* ==========================================
+   تاريخ اليوم بتوقيت تونس
+========================================== */
 
-  importantContainer.innerHTML = "";
-  allContainer.innerHTML = "";
+function updateDate(){
 
-  const important =
-    matches.filter(match => match.important === true);
+    const now = new Date();
 
-  document.getElementById("matchCount").textContent =
-    matches.length + " مباراة";
+    const options = {
+        timeZone: "Africa/Tunis",
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    };
 
-  if (important.length === 0) {
+    const date = new Intl.DateTimeFormat(
+        "ar-TN",
+        options
+    ).format(now);
 
-    importantContainer.innerHTML =
-      `<div class="empty">لا توجد مباريات مهمة حاليًا</div>`;
+    document.getElementById(
+        "todayDate"
+    ).textContent = date;
 
-  } else {
+}
 
-    important.forEach(match => {
+updateDate();
 
-      importantContainer.innerHTML +=
-        createMatch(match);
+
+/* ==========================================
+   تحديث حالة المباريات
+========================================== */
+
+function updateMatchStatus(){
+
+    const now = new Date();
+
+    const tunisNow = new Intl.DateTimeFormat(
+        "en-US",
+        {
+            timeZone:"Africa/Tunis",
+            hour:"2-digit",
+            minute:"2-digit",
+            hour12:false
+        }
+    ).formatToParts(now);
+
+    let hour = 0;
+    let minute = 0;
+
+    tunisNow.forEach(part => {
+
+        if(part.type === "hour"){
+            hour = Number(part.value);
+        }
+
+        if(part.type === "minute"){
+            minute = Number(part.value);
+        }
 
     });
-  }
+
+    const currentMinutes =
+        hour * 60 + minute;
 
 
-  if (matches.length === 0) {
+    const matches = document.querySelectorAll(
+        ".match"
+    );
 
-    allContainer.innerHTML =
-      `<div class="empty">لا توجد مباريات اليوم</div>`;
-
-  } else {
 
     matches.forEach(match => {
 
-      allContainer.innerHTML +=
-        createMatch(match);
+        const timeElement =
+            match.querySelector(".time");
+
+        const statusElement =
+            match.querySelector(".status");
+
+        if(!timeElement || !statusElement){
+            return;
+        }
+
+        const matchTime =
+            timeElement.textContent.trim();
+
+        const parts =
+            matchTime.split(":");
+
+        const matchHour =
+            Number(parts[0]);
+
+        const matchMinute =
+            Number(parts[1]);
+
+        const matchMinutes =
+            matchHour * 60 + matchMinute;
+
+
+        /*
+          قبل المباراة
+        */
+
+        if(
+            currentMinutes <
+            matchMinutes
+        ){
+
+            statusElement.textContent =
+                "لم تبدأ";
+
+            statusElement.classList.remove(
+                "live",
+                "finished"
+            );
+
+            return;
+        }
+
+
+        /*
+          نفترض مدة المباراة حوالي ساعتين
+        */
+
+        if(
+            currentMinutes >= matchMinutes &&
+            currentMinutes <= matchMinutes + 120
+        ){
+
+            statusElement.textContent =
+                "🔴 مباشر";
+
+            statusElement.classList.add(
+                "live"
+            );
+
+            statusElement.classList.remove(
+                "finished"
+            );
+
+            return;
+        }
+
+
+        /*
+          بعد المباراة
+        */
+
+        statusElement.textContent =
+            "انتهت";
+
+        statusElement.classList.remove(
+            "live"
+        );
+
+        statusElement.classList.add(
+            "finished"
+        );
 
     });
-  }
+
 }
 
+updateMatchStatus();
 
-// تحميل المباريات من matches.json
-async function loadMatches() {
-
-  try {
-
-    const response =
-      await fetch("matches.json?time=" + Date.now());
-
-    if (!response.ok) {
-      throw new Error("matches.json not found");
-    }
-
-    const data = await response.json();
-
-    if (Array.isArray(data) && data.length > 0) {
-
-      renderMatches(data);
-
-    } else {
-
-      renderMatches(fallbackMatches);
-
-    }
-
-  } catch (error) {
-
-    console.log("Using today's fallback matches");
-
-    renderMatches(fallbackMatches);
-
-  }
-}
-
-
-// التاريخ
-function setDate() {
-
-  const now = new Date();
-
-  const options = {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-  };
-
-  document.getElementById("todayDate").textContent =
-    now.toLocaleDateString("ar-TN", options);
-}
-
-
-// تشغيل الصفحة
-setDate();
-loadMatches();
+setInterval(
+    updateMatchStatus,
+    30000
+);
 
 </script>
 
