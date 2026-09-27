@@ -17,6 +17,7 @@
       font-family: Arial, sans-serif;
       background: #0f172a;
       color: white;
+      min-height: 100vh;
     }
 
     header {
@@ -47,6 +48,34 @@
       font-size: 23px;
     }
 
+    #matches {
+      min-height: 100px;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px 10px;
+      color: #38bdf8;
+      font-size: 18px;
+    }
+
+    .error {
+      background: #451a03;
+      border: 1px solid #92400e;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      color: #fed7aa;
+    }
+
+    .no-matches {
+      background: #1e293b;
+      border-radius: 15px;
+      padding: 30px 15px;
+      text-align: center;
+      color: #94a3b8;
+    }
+
     .match {
       background: #1e293b;
       border-radius: 15px;
@@ -68,17 +97,20 @@
       justify-content: space-around;
       align-items: center;
       gap: 10px;
-      font-size: 19px;
+      font-size: 18px;
       font-weight: bold;
     }
 
+    .team {
+      flex: 1;
+    }
+
     .vs {
-      color: #f97316;
-      font-size: 14px;
       background: #f97316;
       color: white;
       padding: 8px 10px;
       border-radius: 6px;
+      font-size: 13px;
     }
 
     .time {
@@ -96,12 +128,17 @@
       padding: 12px 30px;
       border-radius: 9px;
       font-weight: bold;
-      transition: 0.2s;
     }
 
-    .watch:hover {
-      background: #15803d;
-      transform: scale(1.03);
+    .watch.disabled {
+      background: #475569;
+      cursor: default;
+    }
+
+    .status {
+      margin-bottom: 15px;
+      color: #cbd5e1;
+      font-size: 14px;
     }
 
     footer {
@@ -117,11 +154,15 @@
       }
 
       .teams {
-        font-size: 16px;
+        font-size: 15px;
       }
 
       .match {
         padding: 20px 10px;
+      }
+
+      .vs {
+        padding: 7px;
       }
     }
   </style>
@@ -131,66 +172,17 @@
 
   <header>
     <h1>⚽ مباريات اليوم</h1>
-    <p>تابع جدول مباريات اليوم بسهولة</p>
+    <p>جدول مباريات كرة القدم يتحدث تلقائيًا</p>
   </header>
 
   <main class="container">
 
     <h2 class="title">🔥 مباريات اليوم</h2>
 
-    <!-- المباراة الأولى -->
-    <div class="match">
-
-      <div class="league">
-        🏆 البطولة
+    <div id="matches">
+      <div class="loading">
+        ⏳ جارٍ تحميل المباريات...
       </div>
-
-      <div class="teams">
-        <span>الفريق الأول</span>
-
-        <span class="vs">
-          VS
-        </span>
-
-        <span>الفريق الثاني</span>
-      </div>
-
-      <div class="time">
-        ⏰ 20:00
-      </div>
-
-      <a href="#" class="watch">
-        📺 مشاهدة المباراة
-      </a>
-
-    </div>
-
-
-    <!-- المباراة الثانية -->
-    <div class="match">
-
-      <div class="league">
-        🏆 بطولة أخرى
-      </div>
-
-      <div class="teams">
-        <span>الفريق الثالث</span>
-
-        <span class="vs">
-          VS
-        </span>
-
-        <span>الفريق الرابع</span>
-      </div>
-
-      <div class="time">
-        ⏰ 22:00
-      </div>
-
-      <a href="#" class="watch">
-        📺 مشاهدة المباراة
-      </a>
-
     </div>
 
   </main>
@@ -198,6 +190,196 @@
   <footer>
     © 2026 مباريات اليوم
   </footer>
+
+  <script>
+
+    const API =
+      "https://www.thesportsdb.com/api/v1/json/123/eventsday.php";
+
+    async function loadMatches() {
+
+      const container = document.getElementById("matches");
+
+      try {
+
+        const now = new Date();
+
+        const year = now.getFullYear();
+
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+
+        const day = String(now.getDate()).padStart(2, "0");
+
+        const today = `${year}-${month}-${day}`;
+
+        const response =
+          await fetch(`${API}?d=${today}&s=Soccer`);
+
+        if (!response.ok) {
+          throw new Error("فشل الاتصال بالخدمة");
+        }
+
+        const data = await response.json();
+
+        const events = data.events || [];
+
+        if (events.length === 0) {
+
+          container.innerHTML = `
+            <div class="no-matches">
+              ⚽ لا توجد مباريات متاحة حاليًا لهذا اليوم.
+            </div>
+          `;
+
+          return;
+        }
+
+        events.sort((a, b) => {
+
+          const timeA =
+            a.strTimestamp ||
+            `${a.dateEvent}T${a.strTime || "00:00:00"}`;
+
+          const timeB =
+            b.strTimestamp ||
+            `${b.dateEvent}T${b.strTime || "00:00:00"}`;
+
+          return new Date(timeA) - new Date(timeB);
+
+        });
+
+        container.innerHTML = "";
+
+        events.forEach(match => {
+
+          const home =
+            match.strHomeTeam || "الفريق الأول";
+
+          const away =
+            match.strAwayTeam || "الفريق الثاني";
+
+          const league =
+            match.strLeague || "بطولة";
+
+          let time = match.strTime || "";
+
+          if (time.length >= 5) {
+            time = time.substring(0, 5);
+          }
+
+          const video =
+            match.strVideo || "";
+
+          let watchButton = "";
+
+          if (video) {
+
+            watchButton = `
+              <a
+                href="${video}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="watch"
+              >
+                📺 مشاهدة
+              </a>
+            `;
+
+          } else {
+
+            watchButton = `
+              <span class="watch disabled">
+                📺 لا يوجد رابط
+              </span>
+            `;
+
+          }
+
+          const card = document.createElement("div");
+
+          card.className = "match";
+
+          card.innerHTML = `
+
+            <div class="league">
+              🏆 ${escapeHtml(league)}
+            </div>
+
+            <div class="teams">
+
+              <span class="team">
+                ${escapeHtml(home)}
+              </span>
+
+              <span class="vs">
+                VS
+              </span>
+
+              <span class="team">
+                ${escapeHtml(away)}
+              </span>
+
+            </div>
+
+            <div class="time">
+              ⏰ ${escapeHtml(time)}
+            </div>
+
+            <div class="status">
+              ${getStatus(match)}
+            </div>
+
+            ${watchButton}
+
+          `;
+
+          container.appendChild(card);
+
+        });
+
+      }
+
+      catch (error) {
+
+        console.error(error);
+
+        container.innerHTML = `
+          <div class="error">
+            ❌ حدث خطأ أثناء تحميل المباريات.
+            <br><br>
+            حاول تحديث الصفحة بعد قليل.
+          </div>
+        `;
+
+      }
+
+    }
+
+    function getStatus(match) {
+
+      if (match.strStatus) {
+
+        return `📌 ${escapeHtml(match.strStatus)}`;
+
+      }
+
+      return "📅 مباراة اليوم";
+
+    }
+
+    function escapeHtml(text) {
+
+      const div = document.createElement("div");
+
+      div.textContent = text;
+
+      return div.innerHTML;
+
+    }
+
+    loadMatches();
+
+  </script>
 
 </body>
 </html>
