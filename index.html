@@ -1,8 +1,9 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>مباريات اليوم</title>
 
   <style>
@@ -20,18 +21,19 @@
 
     header {
       background: #020617;
-      padding: 20px;
+      padding: 25px 15px;
       text-align: center;
       border-bottom: 2px solid #1e293b;
     }
 
     header h1 {
       font-size: 28px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     header p {
       color: #94a3b8;
+      font-size: 15px;
     }
 
     .container {
@@ -42,35 +44,48 @@
 
     .title {
       margin-bottom: 20px;
-      font-size: 22px;
+      font-size: 23px;
     }
 
     .match {
       background: #1e293b;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 15px;
+      border-radius: 15px;
+      padding: 22px 15px;
+      margin-bottom: 18px;
       text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.25);
     }
 
     .league {
       color: #38bdf8;
-      margin-bottom: 15px;
-      font-size: 14px;
+      margin-bottom: 20px;
+      font-size: 15px;
+      font-weight: bold;
     }
 
     .teams {
       display: flex;
       justify-content: space-around;
       align-items: center;
+      gap: 10px;
       font-size: 19px;
       font-weight: bold;
     }
 
+    .vs {
+      color: #f97316;
+      font-size: 14px;
+      background: #f97316;
+      color: white;
+      padding: 8px 10px;
+      border-radius: 6px;
+    }
+
     .time {
-      margin: 15px 0;
+      margin: 20px 0;
       color: #facc15;
-      font-size: 18px;
+      font-size: 20px;
+      font-weight: bold;
     }
 
     .watch {
@@ -78,19 +93,36 @@
       background: #16a34a;
       color: white;
       text-decoration: none;
-      padding: 10px 25px;
-      border-radius: 8px;
+      padding: 12px 30px;
+      border-radius: 9px;
       font-weight: bold;
+      transition: 0.2s;
     }
 
     .watch:hover {
       background: #15803d;
+      transform: scale(1.03);
     }
 
     footer {
       text-align: center;
       padding: 30px;
       color: #64748b;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 24px;
+      }
+
+      .teams {
+        font-size: 16px;
+      }
+
+      .match {
+        padding: 20px 10px;
+      }
     }
   </style>
 </head>
@@ -106,12 +138,20 @@
 
     <h2 class="title">🔥 مباريات اليوم</h2>
 
+    <!-- المباراة الأولى -->
     <div class="match">
-      <div class="league">🏆 البطولة</div>
+
+      <div class="league">
+        🏆 البطولة
+      </div>
 
       <div class="teams">
         <span>الفريق الأول</span>
-        <span>🆚</span>
+
+        <span class="vs">
+          VS
+        </span>
+
         <span>الفريق الثاني</span>
       </div>
 
@@ -120,16 +160,26 @@
       </div>
 
       <a href="#" class="watch">
-        📺 مشاهدة
+        📺 مشاهدة المباراة
       </a>
+
     </div>
 
+
+    <!-- المباراة الثانية -->
     <div class="match">
-      <div class="league">🏆 بطولة أخرى</div>
+
+      <div class="league">
+        🏆 بطولة أخرى
+      </div>
 
       <div class="teams">
         <span>الفريق الثالث</span>
-        <span>🆚</span>
+
+        <span class="vs">
+          VS
+        </span>
+
         <span>الفريق الرابع</span>
       </div>
 
@@ -138,8 +188,9 @@
       </div>
 
       <a href="#" class="watch">
-        📺 مشاهدة
+        📺 مشاهدة المباراة
       </a>
+
     </div>
 
   </main>
