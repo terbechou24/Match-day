@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>مباريات اليوم</title>
+  <title>مباريات اليوم | Match Live</title>
 
   <style>
     * {
@@ -14,155 +14,190 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
+      font-family: Arial, Tahoma, sans-serif;
+      background: #080b12;
+      color: #fff;
       min-height: 100vh;
     }
 
     header {
-      background: #020617;
-      padding: 25px 15px;
+      background: linear-gradient(135deg, #111827, #0b1220);
+      padding: 22px 15px;
       text-align: center;
-      border-bottom: 2px solid #1e293b;
+      border-bottom: 1px solid #202938;
     }
 
-    header h1 {
+    .logo {
       font-size: 28px;
-      margin-bottom: 10px;
+      font-weight: bold;
+      margin-bottom: 8px;
     }
 
-    header p {
-      color: #94a3b8;
-      font-size: 15px;
+    .logo span {
+      color: #20e58a;
+    }
+
+    .date {
+      color: #9ca3af;
+      font-size: 14px;
     }
 
     .container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 15px;
+      width: 100%;
+      max-width: 700px;
+      margin: auto;
+      padding: 15px;
     }
 
-    .title {
-      margin-bottom: 20px;
-      font-size: 23px;
-    }
-
-    #matches {
-      min-height: 100px;
-    }
-
-    .loading {
-      text-align: center;
-      padding: 40px 10px;
-      color: #38bdf8;
-      font-size: 18px;
-    }
-
-    .error {
-      background: #451a03;
-      border: 1px solid #92400e;
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-      color: #fed7aa;
-    }
-
-    .no-matches {
-      background: #1e293b;
-      border-radius: 15px;
-      padding: 30px 15px;
-      text-align: center;
-      color: #94a3b8;
-    }
-
-    .match {
-      background: #1e293b;
-      border-radius: 15px;
-      padding: 22px 15px;
-      margin-bottom: 18px;
-      text-align: center;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.25);
-    }
-
-    .league {
-      color: #38bdf8;
-      margin-bottom: 20px;
-      font-size: 15px;
-      font-weight: bold;
-    }
-
-    .teams {
+    .section-title {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
-      gap: 10px;
-      font-size: 18px;
-      font-weight: bold;
+      margin: 20px 0 12px;
     }
 
-    .team {
-      flex: 1;
+    .section-title h2 {
+      font-size: 19px;
     }
 
-    .vs {
-      background: #f97316;
-      color: white;
-      padding: 8px 10px;
-      border-radius: 6px;
+    .section-title span {
+      color: #20e58a;
       font-size: 13px;
     }
 
+    .match-card {
+      background: #111722;
+      border: 1px solid #202938;
+      border-radius: 16px;
+      margin-bottom: 12px;
+      padding: 15px;
+      transition: .2s;
+    }
+
+    .match-card:hover {
+      border-color: #20e58a;
+      transform: translateY(-1px);
+    }
+
+    .league {
+      text-align: center;
+      color: #9ca3af;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .teams {
+      display: grid;
+      grid-template-columns: 1fr 90px 1fr;
+      align-items: center;
+      text-align: center;
+      gap: 5px;
+    }
+
+    .team {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .team img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #1a2230;
+      padding: 5px;
+    }
+
+    .team-name {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 1.3;
+    }
+
+    .time-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+    }
+
     .time {
-      margin: 20px 0;
-      color: #facc15;
-      font-size: 20px;
+      font-size: 21px;
       font-weight: bold;
-    }
-
-    .watch {
-      display: inline-block;
-      background: #16a34a;
-      color: white;
-      text-decoration: none;
-      padding: 12px 30px;
-      border-radius: 9px;
-      font-weight: bold;
-    }
-
-    .watch.disabled {
-      background: #475569;
-      cursor: default;
     }
 
     .status {
-      margin-bottom: 15px;
-      color: #cbd5e1;
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 20px;
+      background: #283141;
+      color: #d1d5db;
+    }
+
+    .status.live {
+      background: #e11d48;
+      color: white;
+      animation: pulse 1.4s infinite;
+    }
+
+    .status.finished {
+      background: #374151;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: .55; }
+      100% { opacity: 1; }
+    }
+
+    .watch-btn {
+      width: 100%;
+      margin-top: 14px;
+      border: 0;
+      background: #20e58a;
+      color: #06110b;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: bold;
       font-size: 14px;
+      cursor: pointer;
+    }
+
+    .watch-btn:hover {
+      background: #35f09a;
+    }
+
+    .empty {
+      text-align: center;
+      color: #9ca3af;
+      padding: 35px 10px;
     }
 
     footer {
       text-align: center;
-      padding: 30px;
-      color: #64748b;
-      font-size: 14px;
+      color: #6b7280;
+      padding: 25px 10px;
+      font-size: 12px;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 24px;
-      }
-
+    @media (max-width: 420px) {
       .teams {
-        font-size: 15px;
+        grid-template-columns: 1fr 75px 1fr;
       }
 
-      .match {
-        padding: 20px 10px;
+      .team img {
+        width: 45px;
+        height: 45px;
       }
 
-      .vs {
-        padding: 7px;
+      .team-name {
+        font-size: 13px;
+      }
+
+      .time {
+        font-size: 18px;
       }
     }
   </style>
@@ -170,216 +205,328 @@
 
 <body>
 
-  <header>
-    <h1>⚽ مباريات اليوم</h1>
-    <p>جدول مباريات كرة القدم يتحدث تلقائيًا</p>
-  </header>
+<header>
+  <div class="logo">⚽ <span>Match</span> Live</div>
+  <div class="date" id="todayDate">مباريات اليوم</div>
+</header>
 
-  <main class="container">
+<main class="container">
 
-    <h2 class="title">🔥 مباريات اليوم</h2>
+  <div class="section-title">
+    <h2>🔥 أهم مباريات اليوم</h2>
+    <span id="matchCount">0 مباراة</span>
+  </div>
 
-    <div id="matches">
-      <div class="loading">
-        ⏳ جارٍ تحميل المباريات...
+  <div id="importantMatches"></div>
+
+  <div class="section-title">
+    <h2>⚽ جميع مباريات اليوم</h2>
+  </div>
+
+  <div id="allMatches"></div>
+
+</main>
+
+<footer>
+  جميع الحقوق محفوظة © Match Live
+</footer>
+
+<script>
+
+const fallbackMatches = [
+  {
+    league: "دوري الأمم الأوروبية - المستوى الأول",
+    home: "صربيا",
+    away: "هولندا",
+    homeLogo: "https://flagcdn.com/w80/rs.png",
+    awayLogo: "https://flagcdn.com/w80/nl.png",
+    time: "19:00",
+    status: "لم تبدأ",
+    important: true
+  },
+
+  {
+    league: "دوري الأمم الأوروبية - المستوى الأول",
+    home: "الدنمارك",
+    away: "ويلز",
+    homeLogo: "https://flagcdn.com/w80/dk.png",
+    awayLogo: "https://flagcdn.com/w80/gb-wls.png",
+    time: "19:00",
+    status: "لم تبدأ",
+    important: true
+  },
+
+  {
+    league: "دوري الأمم الأوروبية - المستوى الأول",
+    home: "ألمانيا",
+    away: "اليونان",
+    homeLogo: "https://flagcdn.com/w80/de.png",
+    awayLogo: "https://flagcdn.com/w80/gr.png",
+    time: "21:45",
+    status: "لم تبدأ",
+    important: true
+  },
+
+  {
+    league: "دوري الأمم الأوروبية - المستوى الأول",
+    home: "النرويج",
+    away: "البرتغال",
+    homeLogo: "https://flagcdn.com/w80/no.png",
+    awayLogo: "https://flagcdn.com/w80/pt.png",
+    time: "21:45",
+    status: "لم تبدأ",
+    important: true
+  },
+
+  {
+    league: "تصفيات كأس أمم إفريقيا تحت 20",
+    home: "تونس U20",
+    away: "المغرب U20",
+    homeLogo: "https://flagcdn.com/w80/tn.png",
+    awayLogo: "https://flagcdn.com/w80/ma.png",
+    time: "20:00",
+    status: "لم تبدأ",
+    important: true
+  },
+
+  {
+    league: "تصفيات كأس أمم إفريقيا تحت 20",
+    home: "ليبيا U20",
+    away: "الجزائر U20",
+    homeLogo: "https://flagcdn.com/w80/ly.png",
+    awayLogo: "https://flagcdn.com/w80/dz.png",
+    time: "16:30",
+    status: "لم تبدأ",
+    important: false
+  },
+
+  {
+    league: "خليجي 27",
+    home: "البحرين",
+    away: "الإمارات",
+    homeLogo: "https://flagcdn.com/w80/bh.png",
+    awayLogo: "https://flagcdn.com/w80/ae.png",
+    time: "21:00",
+    status: "لم تبدأ",
+    important: true
+  },
+
+  {
+    league: "خليجي 27",
+    home: "اليمن",
+    away: "قطر",
+    homeLogo: "https://flagcdn.com/w80/ye.png",
+    awayLogo: "https://flagcdn.com/w80/qa.png",
+    time: "18:55",
+    status: "لم تبدأ",
+    important: false
+  },
+
+  {
+    league: "مباريات ودية دولية",
+    home: "الأردن",
+    away: "سوريا",
+    homeLogo: "https://flagcdn.com/w80/jo.png",
+    awayLogo: "https://flagcdn.com/w80/sy.png",
+    time: "20:00",
+    status: "لم تبدأ",
+    important: false
+  }
+];
+
+
+// إنشاء بطاقة المباراة
+function createMatch(match) {
+
+  let statusClass = "";
+
+  if (
+    match.status === "مباشر" ||
+    match.status === "LIVE"
+  ) {
+    statusClass = "live";
+  }
+
+  if (
+    match.status === "انتهت" ||
+    match.status === "FINISHED"
+  ) {
+    statusClass = "finished";
+  }
+
+  return `
+    <div class="match-card">
+
+      <div class="league">
+        ${match.league || "مباراة كرة قدم"}
       </div>
-    </div>
 
-  </main>
+      <div class="teams">
 
-  <footer>
-    © 2026 مباريات اليوم
-  </footer>
+        <div class="team">
+          <img
+            src="${match.homeLogo || 'https://flagcdn.com/w80/un.png'}"
+            alt="${match.home}"
+            onerror="this.src='https://flagcdn.com/w80/un.png'"
+          >
 
-  <script>
-
-    const API =
-      "https://www.thesportsdb.com/api/v1/json/123/eventsday.php";
-
-    async function loadMatches() {
-
-      const container = document.getElementById("matches");
-
-      try {
-
-        const now = new Date();
-
-        const year = now.getFullYear();
-
-        const month = String(now.getMonth() + 1).padStart(2, "0");
-
-        const day = String(now.getDate()).padStart(2, "0");
-
-        const today = `${year}-${month}-${day}`;
-
-        const response =
-          await fetch(`${API}?d=${today}&s=Soccer`);
-
-        if (!response.ok) {
-          throw new Error("فشل الاتصال بالخدمة");
-        }
-
-        const data = await response.json();
-
-        const events = data.events || [];
-
-        if (events.length === 0) {
-
-          container.innerHTML = `
-            <div class="no-matches">
-              ⚽ لا توجد مباريات متاحة حاليًا لهذا اليوم.
-            </div>
-          `;
-
-          return;
-        }
-
-        events.sort((a, b) => {
-
-          const timeA =
-            a.strTimestamp ||
-            `${a.dateEvent}T${a.strTime || "00:00:00"}`;
-
-          const timeB =
-            b.strTimestamp ||
-            `${b.dateEvent}T${b.strTime || "00:00:00"}`;
-
-          return new Date(timeA) - new Date(timeB);
-
-        });
-
-        container.innerHTML = "";
-
-        events.forEach(match => {
-
-          const home =
-            match.strHomeTeam || "الفريق الأول";
-
-          const away =
-            match.strAwayTeam || "الفريق الثاني";
-
-          const league =
-            match.strLeague || "بطولة";
-
-          let time = match.strTime || "";
-
-          if (time.length >= 5) {
-            time = time.substring(0, 5);
-          }
-
-          const video =
-            match.strVideo || "";
-
-          let watchButton = "";
-
-          if (video) {
-
-            watchButton = `
-              <a
-                href="${video}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="watch"
-              >
-                📺 مشاهدة
-              </a>
-            `;
-
-          } else {
-
-            watchButton = `
-              <span class="watch disabled">
-                📺 لا يوجد رابط
-              </span>
-            `;
-
-          }
-
-          const card = document.createElement("div");
-
-          card.className = "match";
-
-          card.innerHTML = `
-
-            <div class="league">
-              🏆 ${escapeHtml(league)}
-            </div>
-
-            <div class="teams">
-
-              <span class="team">
-                ${escapeHtml(home)}
-              </span>
-
-              <span class="vs">
-                VS
-              </span>
-
-              <span class="team">
-                ${escapeHtml(away)}
-              </span>
-
-            </div>
-
-            <div class="time">
-              ⏰ ${escapeHtml(time)}
-            </div>
-
-            <div class="status">
-              ${getStatus(match)}
-            </div>
-
-            ${watchButton}
-
-          `;
-
-          container.appendChild(card);
-
-        });
-
-      }
-
-      catch (error) {
-
-        console.error(error);
-
-        container.innerHTML = `
-          <div class="error">
-            ❌ حدث خطأ أثناء تحميل المباريات.
-            <br><br>
-            حاول تحديث الصفحة بعد قليل.
+          <div class="team-name">
+            ${match.home}
           </div>
-        `;
+        </div>
 
+        <div class="time-box">
+
+          <div class="time">
+            ${match.time || "--:--"}
+          </div>
+
+          <div class="status ${statusClass}">
+            ${match.status || "لم تبدأ"}
+          </div>
+
+        </div>
+
+        <div class="team">
+
+          <img
+            src="${match.awayLogo || 'https://flagcdn.com/w80/un.png'}"
+            alt="${match.away}"
+            onerror="this.src='https://flagcdn.com/w80/un.png'"
+          >
+
+          <div class="team-name">
+            ${match.away}
+          </div>
+
+        </div>
+
+      </div>
+
+      ${
+        match.watchUrl
+        ?
+        `<a href="${match.watchUrl}" target="_blank" rel="noopener">
+          <button class="watch-btn">
+            ▶ مشاهدة المباراة
+          </button>
+        </a>`
+        :
+        ""
       }
 
+    </div>
+  `;
+}
+
+
+// عرض المباريات
+function renderMatches(matches) {
+
+  const importantContainer =
+    document.getElementById("importantMatches");
+
+  const allContainer =
+    document.getElementById("allMatches");
+
+  importantContainer.innerHTML = "";
+  allContainer.innerHTML = "";
+
+  const important =
+    matches.filter(match => match.important === true);
+
+  document.getElementById("matchCount").textContent =
+    matches.length + " مباراة";
+
+  if (important.length === 0) {
+
+    importantContainer.innerHTML =
+      `<div class="empty">لا توجد مباريات مهمة حاليًا</div>`;
+
+  } else {
+
+    important.forEach(match => {
+
+      importantContainer.innerHTML +=
+        createMatch(match);
+
+    });
+  }
+
+
+  if (matches.length === 0) {
+
+    allContainer.innerHTML =
+      `<div class="empty">لا توجد مباريات اليوم</div>`;
+
+  } else {
+
+    matches.forEach(match => {
+
+      allContainer.innerHTML +=
+        createMatch(match);
+
+    });
+  }
+}
+
+
+// تحميل المباريات من matches.json
+async function loadMatches() {
+
+  try {
+
+    const response =
+      await fetch("matches.json?time=" + Date.now());
+
+    if (!response.ok) {
+      throw new Error("matches.json not found");
     }
 
-    function getStatus(match) {
+    const data = await response.json();
 
-      if (match.strStatus) {
+    if (Array.isArray(data) && data.length > 0) {
 
-        return `📌 ${escapeHtml(match.strStatus)}`;
+      renderMatches(data);
 
-      }
+    } else {
 
-      return "📅 مباراة اليوم";
-
-    }
-
-    function escapeHtml(text) {
-
-      const div = document.createElement("div");
-
-      div.textContent = text;
-
-      return div.innerHTML;
+      renderMatches(fallbackMatches);
 
     }
 
-    loadMatches();
+  } catch (error) {
 
-  </script>
+    console.log("Using today's fallback matches");
+
+    renderMatches(fallbackMatches);
+
+  }
+}
+
+
+// التاريخ
+function setDate() {
+
+  const now = new Date();
+
+  const options = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  };
+
+  document.getElementById("todayDate").textContent =
+    now.toLocaleDateString("ar-TN", options);
+}
+
+
+// تشغيل الصفحة
+setDate();
+loadMatches();
+
+</script>
 
 </body>
 </html>
