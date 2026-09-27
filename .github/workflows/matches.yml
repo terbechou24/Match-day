@@ -2,38 +2,159 @@ name: Update football matches
 
 on:
   schedule:
+    # كل 3 ساعات
     - cron: "0 */3 * * *"
+
+  # يسمح لك بتشغيله يدويًا أيضًا
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
+
   update-matches:
+
     runs-on: ubuntu-latest
 
     steps:
+
+      # =========================
+      # تحميل المستودع
+      # =========================
+
       - name: Download repository
         uses: actions/checkout@v4
 
+
+      # =========================
+      # جلب مباريات اليوم
+      # =========================
+
       - name: Get today's matches
+
         env:
           API_KEY: ${{ secrets.API_FOOTBALL_KEY }}
-        run: |
-          DATE=$(date -u +%Y-%m-%d)
 
-          curl -s \
+        run: |
+
+          # تاريخ اليوم بتوقيت تونس
+          DATE=$(TZ=Africa/Tunis date +%Y-%m-%d)
+
+          echo "Today's date: $DATE"
+
+          # طلب مباريات اليوم
+          curl --fail --silent --show-error \
             -H "x-apisports-key: $API_KEY" \
             "https://v3.football.api-sports.io/fixtures?date=$DATE&timezone=Africa/Tunis" \
-            -o matches.json
+            -o api-response.json
+
+
+      # =========================
+      # تحويل البيانات إلى ملف
+      # =========================
+
+      - name: Create matches.json
+
+        run: |
+
+          python3 <<'PY'
+
+          import json
+
+          with open("api-response.json", "r", encoding="utf-8") as f:
+              data = json.load(f)
+
+          matches = []
+
+          for item in data.get("response", []):
+
+              fixture = item.get("fixture", {})
+              league = item.get("league", {})
+              teams = item.get("teams", {})
+              goals = item.get("goals", {})
+
+              home = teams.get("home", {})
+              away = teams.get("away", {})
+
+              status = fixture.get("status", {})
+
+              matches.append({
+
+                  "id": fixture.get("id"),
+
+                  "date": fixture.get("date"),
+
+                  "timestamp": fixture.get("timestamp"),
+
+                  "league": {
+                      "id": league.get("id"),
+                      "name": league.get("name"),
+                      "country": league.get("country"),
+                      "logo": league.get("logo")
+                  },
+
+                  "home": {
+                      "id": home.get("id"),
+                      "name": home.get("name"),
+                      "logo": home.get("logo")
+                  },
+
+                  "away": {
+                      "id": away.get("id"),
+                      "name": away.get("name"),
+                      "logo": away.get("logo")
+                  },
+
+                  "goals": {
+                      "home": goals.get("home"),
+                      "away": goals.get("away")
+                  },
+
+                  "status": {
+                      "short": status.get("short"),
+                      "long": status.get("long"),
+                      "elapsed": status.get("elapsed")
+                  }
+
+              })
+
+
+          output = {
+              "updated_at": data.get("parameters", {}),
+              "matches": matches
+          }
+
+
+          with open("matches.json", "w", encoding="utf-8") as f:
+
+              json.dump(
+                  output,
+                  f,
+                  ensure_ascii=False,
+                  indent=2
+              )
+
+          print("Matches found:", len(matches))
+
+          PY
+
+
+      # =========================
+      # حفظ البيانات في GitHub
+      # =========================
 
       - name: Save matches
+
         run: |
+
           git config user.name "github-actions[bot]"
+
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add matches.json
 
-          git diff --cached --quiet || git commit -m "Update today's matches"
+          git diff --cached --quiet || \
+            git commit -m "Update today's matches"
 
           git push
