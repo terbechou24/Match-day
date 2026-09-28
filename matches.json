@@ -595,43 +595,13 @@
         "logo": "https://media.api-sports.io/football/teams/2287.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 4
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
-      }
-    },
-    {
-      "id": 1641708,
-      "date": "2026-09-28T09:00:00+01:00",
-      "timestamp": 1790582400,
-      "league": {
-        "id": 1247,
-        "name": "FIFA Asean Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1247.png"
-      },
-      "home": {
-        "id": 1546,
-        "name": "Singapore",
-        "logo": "https://media.api-sports.io/football/teams/1546.png"
-      },
-      "away": {
-        "id": 1560,
-        "name": "Bangladesh",
-        "logo": "https://media.api-sports.io/football/teams/1560.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -653,6 +623,36 @@
         "id": 19005,
         "name": "RTC",
         "logo": "https://media.api-sports.io/football/teams/19005.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1641708,
+      "date": "2026-09-28T10:00:00+01:00",
+      "timestamp": 1790586000,
+      "league": {
+        "id": 1247,
+        "name": "FIFA Asean Cup",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/1247.png"
+      },
+      "home": {
+        "id": 1546,
+        "name": "Singapore",
+        "logo": "https://media.api-sports.io/football/teams/1546.png"
+      },
+      "away": {
+        "id": 1560,
+        "name": "Bangladesh",
+        "logo": "https://media.api-sports.io/football/teams/1560.png"
       },
       "goals": {
         "home": null,
@@ -785,36 +785,6 @@
       }
     },
     {
-      "id": 1641709,
-      "date": "2026-09-28T12:30:00+01:00",
-      "timestamp": 1790595000,
-      "league": {
-        "id": 1247,
-        "name": "FIFA Asean Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1247.png"
-      },
-      "home": {
-        "id": 1571,
-        "name": "Indonesia",
-        "logo": "https://media.api-sports.io/football/teams/1571.png"
-      },
-      "away": {
-        "id": 1538,
-        "name": "Malaysia",
-        "logo": "https://media.api-sports.io/football/teams/1538.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
-      }
-    },
-    {
       "id": 1638596,
       "date": "2026-09-28T13:00:00+01:00",
       "timestamp": 1790596800,
@@ -863,6 +833,36 @@
         "id": 1551,
         "name": "Lebanon",
         "logo": "https://media.api-sports.io/football/teams/1551.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1641709,
+      "date": "2026-09-28T13:30:00+01:00",
+      "timestamp": 1790598600,
+      "league": {
+        "id": 1247,
+        "name": "FIFA Asean Cup",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/1247.png"
+      },
+      "home": {
+        "id": 1571,
+        "name": "Indonesia",
+        "logo": "https://media.api-sports.io/football/teams/1571.png"
+      },
+      "away": {
+        "id": 1538,
+        "name": "Malaysia",
+        "logo": "https://media.api-sports.io/football/teams/1538.png"
       },
       "goals": {
         "home": null,
