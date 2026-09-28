@@ -625,13 +625,13 @@
         "logo": "https://media.api-sports.io/football/teams/19005.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 1
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "1H",
+        "long": "First Half",
+        "elapsed": 11
       }
     },
     {
@@ -655,13 +655,13 @@
         "logo": "https://media.api-sports.io/football/teams/1560.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "1H",
+        "long": "First Half",
+        "elapsed": 10
       }
     },
     {
@@ -803,36 +803,6 @@
         "id": 1562,
         "name": "Palestine",
         "logo": "https://media.api-sports.io/football/teams/1562.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
-      }
-    },
-    {
-      "id": 1640507,
-      "date": "2026-09-28T13:00:00+01:00",
-      "timestamp": 1790596800,
-      "league": {
-        "id": 10,
-        "name": "Friendlies",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/10.png"
-      },
-      "home": {
-        "id": 1554,
-        "name": "Kyrgyzstan",
-        "logo": "https://media.api-sports.io/football/teams/1554.png"
-      },
-      "away": {
-        "id": 1551,
-        "name": "Lebanon",
-        "logo": "https://media.api-sports.io/football/teams/1551.png"
       },
       "goals": {
         "home": null,
@@ -1085,6 +1055,36 @@
       }
     },
     {
+      "id": 1640067,
+      "date": "2026-09-28T15:00:00+01:00",
+      "timestamp": 1790604000,
+      "league": {
+        "id": 10,
+        "name": "Friendlies",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/10.png"
+      },
+      "home": {
+        "id": 1554,
+        "name": "Kyrgyzstan",
+        "logo": "https://media.api-sports.io/football/teams/1554.png"
+      },
+      "away": {
+        "id": 1549,
+        "name": "Maldives",
+        "logo": "https://media.api-sports.io/football/teams/1549.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
       "id": 1640827,
       "date": "2026-09-28T15:00:00+01:00",
       "timestamp": 1790604000,
@@ -1223,6 +1223,36 @@
         "id": 17475,
         "name": "Vizela U23",
         "logo": "https://media.api-sports.io/football/teams/17475.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1628529,
+      "date": "2026-09-28T16:00:00+01:00",
+      "timestamp": 1790607600,
+      "league": {
+        "id": 399,
+        "name": "NPFL",
+        "country": "Nigeria",
+        "logo": "https://media.api-sports.io/football/leagues/399.png"
+      },
+      "home": {
+        "id": 28169,
+        "name": "Ranchers Bees",
+        "logo": "https://media.api-sports.io/football/teams/28169.png"
+      },
+      "away": {
+        "id": 5192,
+        "name": "Rivers United",
+        "logo": "https://media.api-sports.io/football/teams/5192.png"
       },
       "goals": {
         "home": null,
@@ -2385,14 +2415,14 @@
         "logo": "https://media.api-sports.io/football/leagues/36.png"
       },
       "home": {
-        "id": 1520,
-        "name": "Botswana",
-        "logo": "https://media.api-sports.io/football/teams/1520.png"
-      },
-      "away": {
         "id": 28,
         "name": "Tunisia",
         "logo": "https://media.api-sports.io/football/teams/28.png"
+      },
+      "away": {
+        "id": 1520,
+        "name": "Botswana",
+        "logo": "https://media.api-sports.io/football/teams/1520.png"
       },
       "goals": {
         "home": null,
