@@ -25,13 +25,13 @@
         "logo": "https://media.api-sports.io/football/teams/1458.png"
       },
       "goals": {
-        "home": 0,
+        "home": 1,
         "away": 0
       },
       "status": {
-        "short": "2H",
-        "long": "Second Half",
-        "elapsed": 55
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -56,12 +56,12 @@
       },
       "goals": {
         "home": 0,
-        "away": 2
+        "away": 5
       },
       "status": {
-        "short": "2H",
-        "long": "Second Half",
-        "elapsed": 51
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -86,12 +86,12 @@
       },
       "goals": {
         "home": 2,
-        "away": 0
+        "away": 1
       },
       "status": {
-        "short": "2H",
-        "long": "Second Half",
-        "elapsed": 55
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -116,12 +116,12 @@
       },
       "goals": {
         "home": 0,
-        "away": 0
+        "away": 1
       },
       "status": {
-        "short": "1H",
-        "long": "First Half",
-        "elapsed": 13
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -145,13 +145,13 @@
         "logo": "https://media.api-sports.io/football/teams/5533.png"
       },
       "goals": {
-        "home": 1,
+        "home": 3,
         "away": 0
       },
       "status": {
-        "short": "1H",
-        "long": "First Half",
-        "elapsed": 12
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -175,13 +175,13 @@
         "logo": "https://media.api-sports.io/football/teams/5158.png"
       },
       "goals": {
-        "home": 0,
-        "away": 0
+        "home": 5,
+        "away": 2
       },
       "status": {
-        "short": "1H",
-        "long": "First Half",
-        "elapsed": 12
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -205,13 +205,13 @@
         "logo": "https://media.api-sports.io/football/teams/2890.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 0
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -235,13 +235,13 @@
         "logo": "https://media.api-sports.io/football/teams/2058.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 1
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -265,13 +265,13 @@
         "logo": "https://media.api-sports.io/football/teams/14885.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 4
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -295,13 +295,13 @@
         "logo": "https://media.api-sports.io/football/teams/5159.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 3,
+        "away": 0
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "2H",
+        "long": "Second Half",
+        "elapsed": 51
       }
     },
     {
@@ -325,13 +325,13 @@
         "logo": "https://media.api-sports.io/football/teams/22046.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 1
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "HT",
+        "long": "Halftime",
+        "elapsed": 45
       }
     },
     {
@@ -465,14 +465,14 @@
         "logo": "https://media.api-sports.io/football/leagues/811.png"
       },
       "home": {
-        "id": 5011,
-        "name": "Arambagh",
-        "logo": "https://media.api-sports.io/football/teams/5011.png"
-      },
-      "away": {
         "id": 5014,
         "name": "Mohammedan Dhaka",
         "logo": "https://media.api-sports.io/football/teams/5014.png"
+      },
+      "away": {
+        "id": 5011,
+        "name": "Arambagh",
+        "logo": "https://media.api-sports.io/football/teams/5011.png"
       },
       "goals": {
         "home": null,
@@ -495,14 +495,14 @@
         "logo": "https://media.api-sports.io/football/leagues/811.png"
       },
       "home": {
-        "id": 5012,
-        "name": "Bashundhara Kings",
-        "logo": "https://media.api-sports.io/football/teams/5012.png"
-      },
-      "away": {
         "id": 25415,
         "name": "Dhaka Wanderers",
         "logo": "https://media.api-sports.io/football/teams/25415.png"
+      },
+      "away": {
+        "id": 5012,
+        "name": "Bashundhara Kings",
+        "logo": "https://media.api-sports.io/football/teams/5012.png"
       },
       "goals": {
         "home": null,
@@ -525,14 +525,14 @@
         "logo": "https://media.api-sports.io/football/leagues/811.png"
       },
       "home": {
-        "id": 28429,
-        "name": "City Club",
-        "logo": "https://media.api-sports.io/football/teams/28429.png"
-      },
-      "away": {
         "id": 10106,
         "name": "Bangladesh Police",
         "logo": "https://media.api-sports.io/football/teams/10106.png"
+      },
+      "away": {
+        "id": 28429,
+        "name": "City Club",
+        "logo": "https://media.api-sports.io/football/teams/28429.png"
       },
       "goals": {
         "home": null,
@@ -5153,36 +5153,6 @@
         "id": 2315,
         "name": "Colo Colo",
         "logo": "https://media.api-sports.io/football/teams/2315.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
-      }
-    },
-    {
-      "id": 1600612,
-      "date": "2026-09-29T22:30:00+01:00",
-      "timestamp": 1790717400,
-      "league": {
-        "id": 370,
-        "name": "Primera Division",
-        "country": "El-Salvador",
-        "logo": "https://media.api-sports.io/football/leagues/370.png"
-      },
-      "home": {
-        "id": 4310,
-        "name": "Águila",
-        "logo": "https://media.api-sports.io/football/teams/4310.png"
-      },
-      "away": {
-        "id": 26154,
-        "name": "Inter",
-        "logo": "https://media.api-sports.io/football/teams/26154.png"
       },
       "goals": {
         "home": null,
