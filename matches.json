@@ -295,13 +295,13 @@
         "logo": "https://media.api-sports.io/football/teams/24722.png"
       },
       "goals": {
-        "home": 0,
-        "away": 3
+        "home": 2,
+        "away": 4
       },
       "status": {
-        "short": "2H",
-        "long": "Second Half",
-        "elapsed": 47
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -325,13 +325,13 @@
         "logo": "https://media.api-sports.io/football/teams/10932.png"
       },
       "goals": {
-        "home": 0,
-        "away": 0
+        "home": 2,
+        "away": 1
       },
       "status": {
-        "short": "1H",
-        "long": "First Half",
-        "elapsed": 11
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -355,13 +355,43 @@
         "logo": "https://media.api-sports.io/football/teams/5163.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
+      }
+    },
+    {
+      "id": 1642893,
+      "date": "2026-09-30T08:30:00+01:00",
+      "timestamp": 1790753400,
+      "league": {
+        "id": 667,
+        "name": "Friendlies Clubs",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/667.png"
+      },
+      "home": {
+        "id": 2592,
+        "name": "Arges Pitesti",
+        "logo": "https://media.api-sports.io/football/teams/2592.png"
+      },
+      "away": {
+        "id": 6853,
+        "name": "Cetate Deva",
+        "logo": "https://media.api-sports.io/football/teams/6853.png"
+      },
+      "goals": {
+        "home": 2,
+        "away": 1
+      },
+      "status": {
+        "short": "2H",
+        "long": "Second Half",
+        "elapsed": 89
       }
     },
     {
@@ -385,43 +415,13 @@
         "logo": "https://media.api-sports.io/football/teams/16854.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
-      }
-    },
-    {
-      "id": 1642893,
-      "date": "2026-09-30T09:00:00+01:00",
-      "timestamp": 1790755200,
-      "league": {
-        "id": 667,
-        "name": "Friendlies Clubs",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/667.png"
-      },
-      "home": {
-        "id": 2592,
-        "name": "Arges Pitesti",
-        "logo": "https://media.api-sports.io/football/teams/2592.png"
-      },
-      "away": {
-        "id": 6853,
-        "name": "Cetate Deva",
-        "logo": "https://media.api-sports.io/football/teams/6853.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "2H",
+        "long": "Second Half",
+        "elapsed": 51
       }
     },
     {
@@ -505,13 +505,13 @@
         "logo": "https://media.api-sports.io/football/teams/3466.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "1H",
+        "long": "First Half",
+        "elapsed": 7
       }
     },
     {
@@ -535,13 +535,13 @@
         "logo": "https://media.api-sports.io/football/teams/1543.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "1H",
+        "long": "First Half",
+        "elapsed": 9
       }
     },
     {
@@ -595,13 +595,13 @@
         "logo": "https://media.api-sports.io/football/teams/10352.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "1H",
+        "long": "First Half",
+        "elapsed": 7
       }
     },
     {
@@ -653,6 +653,36 @@
         "id": 10336,
         "name": "Germany U19",
         "logo": "https://media.api-sports.io/football/teams/10336.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1643188,
+      "date": "2026-09-30T11:00:00+01:00",
+      "timestamp": 1790762400,
+      "league": {
+        "id": 10,
+        "name": "Friendlies",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/10.png"
+      },
+      "home": {
+        "id": 22342,
+        "name": "USA U18",
+        "logo": "https://media.api-sports.io/football/teams/22342.png"
+      },
+      "away": {
+        "id": 27060,
+        "name": "Ireland U18",
+        "logo": "https://media.api-sports.io/football/teams/27060.png"
       },
       "goals": {
         "home": null,
@@ -815,24 +845,24 @@
       }
     },
     {
-      "id": 1641080,
+      "id": 1640070,
       "date": "2026-09-30T13:00:00+01:00",
       "timestamp": 1790769600,
       "league": {
-        "id": 666,
-        "name": "Friendlies Women",
+        "id": 10,
+        "name": "Friendlies",
         "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/666.png"
+        "logo": "https://media.api-sports.io/football/leagues/10.png"
       },
       "home": {
-        "id": 16925,
-        "name": "Botswana W",
-        "logo": "https://media.api-sports.io/football/teams/16925.png"
+        "id": 1515,
+        "name": "Seychelles",
+        "logo": "https://media.api-sports.io/football/teams/1515.png"
       },
       "away": {
-        "id": 16939,
-        "name": "Namibia W",
-        "logo": "https://media.api-sports.io/football/teams/16939.png"
+        "id": 5166,
+        "name": "Sri Lanka",
+        "logo": "https://media.api-sports.io/football/teams/5166.png"
       },
       "goals": {
         "home": null,
@@ -893,6 +923,36 @@
         "id": 10331,
         "name": "Denmark U19",
         "logo": "https://media.api-sports.io/football/teams/10331.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1643237,
+      "date": "2026-09-30T13:00:00+01:00",
+      "timestamp": 1790769600,
+      "league": {
+        "id": 666,
+        "name": "Friendlies Women",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/666.png"
+      },
+      "home": {
+        "id": 16928,
+        "name": "Ethiopia W",
+        "logo": "https://media.api-sports.io/football/teams/16928.png"
+      },
+      "away": {
+        "id": 19933,
+        "name": "Seychelles W",
+        "logo": "https://media.api-sports.io/football/teams/19933.png"
       },
       "goals": {
         "home": null,
@@ -1223,36 +1283,6 @@
         "id": 23496,
         "name": "Jaguar U20",
         "logo": "https://media.api-sports.io/football/teams/23496.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
-      }
-    },
-    {
-      "id": 1640070,
-      "date": "2026-09-30T14:00:00+01:00",
-      "timestamp": 1790773200,
-      "league": {
-        "id": 10,
-        "name": "Friendlies",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/10.png"
-      },
-      "home": {
-        "id": 1515,
-        "name": "Seychelles",
-        "logo": "https://media.api-sports.io/football/teams/1515.png"
-      },
-      "away": {
-        "id": 5166,
-        "name": "Sri Lanka",
-        "logo": "https://media.api-sports.io/football/teams/5166.png"
       },
       "goals": {
         "home": null,
@@ -1613,6 +1643,36 @@
         "id": 21474,
         "name": "Norway U18",
         "logo": "https://media.api-sports.io/football/teams/21474.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1643189,
+      "date": "2026-09-30T15:00:00+01:00",
+      "timestamp": 1790776800,
+      "league": {
+        "id": 10,
+        "name": "Friendlies",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/10.png"
+      },
+      "home": {
+        "id": 10195,
+        "name": "South Africa U23",
+        "logo": "https://media.api-sports.io/football/teams/10195.png"
+      },
+      "away": {
+        "id": 10186,
+        "name": "Algeria U23",
+        "logo": "https://media.api-sports.io/football/teams/10186.png"
       },
       "goals": {
         "home": null,
@@ -3083,6 +3143,66 @@
         "id": 9681,
         "name": "Terrassa",
         "logo": "https://media.api-sports.io/football/teams/9681.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1643190,
+      "date": "2026-09-30T18:00:00+01:00",
+      "timestamp": 1790787600,
+      "league": {
+        "id": 10,
+        "name": "Friendlies",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/10.png"
+      },
+      "home": {
+        "id": 607,
+        "name": "Konyaspor",
+        "logo": "https://media.api-sports.io/football/teams/607.png"
+      },
+      "away": {
+        "id": 1562,
+        "name": "Palestine",
+        "logo": "https://media.api-sports.io/football/teams/1562.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1643191,
+      "date": "2026-09-30T18:00:00+01:00",
+      "timestamp": 1790787600,
+      "league": {
+        "id": 10,
+        "name": "Friendlies",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/10.png"
+      },
+      "home": {
+        "id": 10371,
+        "name": "Luxembourg U19",
+        "logo": "https://media.api-sports.io/football/teams/10371.png"
+      },
+      "away": {
+        "id": 10341,
+        "name": "North Macedonia U19",
+        "logo": "https://media.api-sports.io/football/teams/10341.png"
       },
       "goals": {
         "home": null,
@@ -4685,6 +4805,36 @@
       }
     },
     {
+      "id": 1643203,
+      "date": "2026-09-30T19:00:00+01:00",
+      "timestamp": 1790791200,
+      "league": {
+        "id": 667,
+        "name": "Friendlies Clubs",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/667.png"
+      },
+      "home": {
+        "id": 16374,
+        "name": "Seuzach",
+        "logo": "https://media.api-sports.io/football/teams/16374.png"
+      },
+      "away": {
+        "id": 2180,
+        "name": "FC Winterthur",
+        "logo": "https://media.api-sports.io/football/teams/2180.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
       "id": 1610113,
       "date": "2026-09-30T19:15:00+01:00",
       "timestamp": 1790792100,
@@ -4883,6 +5033,36 @@
         "id": 9757,
         "name": "Conil",
         "logo": "https://media.api-sports.io/football/teams/9757.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1643192,
+      "date": "2026-09-30T19:30:00+01:00",
+      "timestamp": 1790793000,
+      "league": {
+        "id": 10,
+        "name": "Friendlies",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/10.png"
+      },
+      "home": {
+        "id": 26086,
+        "name": "Spain U20",
+        "logo": "https://media.api-sports.io/football/teams/26086.png"
+      },
+      "away": {
+        "id": 10293,
+        "name": "Mexico U20",
+        "logo": "https://media.api-sports.io/football/teams/10293.png"
       },
       "goals": {
         "home": null,
