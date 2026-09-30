@@ -389,9 +389,9 @@
         "away": 1
       },
       "status": {
-        "short": "2H",
-        "long": "Second Half",
-        "elapsed": 89
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -416,12 +416,12 @@
       },
       "goals": {
         "home": 0,
-        "away": 0
+        "away": 4
       },
       "status": {
-        "short": "2H",
-        "long": "Second Half",
-        "elapsed": 51
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -445,13 +445,13 @@
         "logo": "https://media.api-sports.io/football/teams/21466.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 2
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -475,13 +475,13 @@
         "logo": "https://media.api-sports.io/football/teams/17953.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 3,
+        "away": 1
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -506,12 +506,12 @@
       },
       "goals": {
         "home": 0,
-        "away": 0
+        "away": 1
       },
       "status": {
-        "short": "1H",
-        "long": "First Half",
-        "elapsed": 7
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -535,13 +535,13 @@
         "logo": "https://media.api-sports.io/football/teams/1543.png"
       },
       "goals": {
-        "home": 0,
-        "away": 0
+        "home": 2,
+        "away": 2
       },
       "status": {
-        "short": "1H",
-        "long": "First Half",
-        "elapsed": 9
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -565,13 +565,13 @@
         "logo": "https://media.api-sports.io/football/teams/17947.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 3,
+        "away": 2
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -596,12 +596,12 @@
       },
       "goals": {
         "home": 0,
-        "away": 0
+        "away": 2
       },
       "status": {
-        "short": "1H",
-        "long": "First Half",
-        "elapsed": 7
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -625,13 +625,13 @@
         "logo": "https://media.api-sports.io/football/teams/10330.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 2,
+        "away": 1
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -655,13 +655,13 @@
         "logo": "https://media.api-sports.io/football/teams/10336.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 2
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -715,13 +715,13 @@
         "logo": "https://media.api-sports.io/football/teams/10176.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 0
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "2H",
+        "long": "Second Half",
+        "elapsed": 84
       }
     },
     {
@@ -775,13 +775,13 @@
         "logo": "https://media.api-sports.io/football/teams/6210.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 2
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "1H",
+        "long": "First Half",
+        "elapsed": 8
       }
     },
     {
@@ -805,13 +805,13 @@
         "logo": "https://media.api-sports.io/football/teams/5591.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "1H",
+        "long": "First Half",
+        "elapsed": 16
       }
     },
     {
@@ -895,13 +895,13 @@
         "logo": "https://media.api-sports.io/football/teams/5538.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "1H",
+        "long": "First Half",
+        "elapsed": 12
       }
     },
     {
@@ -925,13 +925,13 @@
         "logo": "https://media.api-sports.io/football/teams/10331.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "1H",
+        "long": "First Half",
+        "elapsed": 11
       }
     },
     {
@@ -1295,66 +1295,6 @@
       }
     },
     {
-      "id": 1641757,
-      "date": "2026-09-30T14:00:00+01:00",
-      "timestamp": 1790773200,
-      "league": {
-        "id": 538,
-        "name": "Africa Cup of Nations U20",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/538.png"
-      },
-      "home": {
-        "id": 11027,
-        "name": "Egypt U20",
-        "logo": "https://media.api-sports.io/football/teams/11027.png"
-      },
-      "away": {
-        "id": 11049,
-        "name": "Tunisia U20",
-        "logo": "https://media.api-sports.io/football/teams/11049.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
-      }
-    },
-    {
-      "id": 1641758,
-      "date": "2026-09-30T14:00:00+01:00",
-      "timestamp": 1790773200,
-      "league": {
-        "id": 538,
-        "name": "Africa Cup of Nations U20",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/538.png"
-      },
-      "home": {
-        "id": 11039,
-        "name": "Morocco U20",
-        "logo": "https://media.api-sports.io/football/teams/11039.png"
-      },
-      "away": {
-        "id": 11017,
-        "name": "Algeria U20",
-        "logo": "https://media.api-sports.io/football/teams/11017.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
-      }
-    },
-    {
       "id": 1642256,
       "date": "2026-09-30T14:00:00+01:00",
       "timestamp": 1790773200,
@@ -1403,6 +1343,36 @@
         "id": 3714,
         "name": "Bohemians 1905",
         "logo": "https://media.api-sports.io/football/teams/3714.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1641758,
+      "date": "2026-09-30T14:30:00+01:00",
+      "timestamp": 1790775000,
+      "league": {
+        "id": 538,
+        "name": "Africa Cup of Nations U20",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/538.png"
+      },
+      "home": {
+        "id": 11039,
+        "name": "Morocco U20",
+        "logo": "https://media.api-sports.io/football/teams/11039.png"
+      },
+      "away": {
+        "id": 11017,
+        "name": "Algeria U20",
+        "logo": "https://media.api-sports.io/football/teams/11017.png"
       },
       "goals": {
         "home": null,
@@ -3143,6 +3113,36 @@
         "id": 9681,
         "name": "Terrassa",
         "logo": "https://media.api-sports.io/football/teams/9681.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1641757,
+      "date": "2026-09-30T18:00:00+01:00",
+      "timestamp": 1790787600,
+      "league": {
+        "id": 538,
+        "name": "Africa Cup of Nations U20",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/538.png"
+      },
+      "home": {
+        "id": 11027,
+        "name": "Egypt U20",
+        "logo": "https://media.api-sports.io/football/teams/11027.png"
+      },
+      "away": {
+        "id": 11049,
+        "name": "Tunisia U20",
+        "logo": "https://media.api-sports.io/football/teams/11049.png"
       },
       "goals": {
         "home": null,
