@@ -295,13 +295,13 @@
         "logo": "https://media.api-sports.io/football/teams/1611.png"
       },
       "goals": {
-        "home": 1,
+        "home": 2,
         "away": 1
       },
       "status": {
-        "short": "2H",
-        "long": "Second Half",
-        "elapsed": 73
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -326,12 +326,12 @@
       },
       "goals": {
         "home": 0,
-        "away": 0
+        "away": 3
       },
       "status": {
-        "short": "2H",
-        "long": "Second Half",
-        "elapsed": 53
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -355,73 +355,13 @@
         "logo": "https://media.api-sports.io/football/teams/1728.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 1
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
-      }
-    },
-    {
-      "id": 1641716,
-      "date": "2026-10-02T09:00:00+01:00",
-      "timestamp": 1790928000,
-      "league": {
-        "id": 1247,
-        "name": "FIFA Asean Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1247.png"
-      },
-      "home": {
-        "id": 1564,
-        "name": "Thailand",
-        "logo": "https://media.api-sports.io/football/teams/1564.png"
-      },
-      "away": {
-        "id": 1555,
-        "name": "Philippines",
-        "logo": "https://media.api-sports.io/football/teams/1555.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
-      }
-    },
-    {
-      "id": 1641717,
-      "date": "2026-10-02T09:00:00+01:00",
-      "timestamp": 1790928000,
-      "league": {
-        "id": 1247,
-        "name": "FIFA Asean Cup",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/1247.png"
-      },
-      "home": {
-        "id": 1542,
-        "name": "Vietnam",
-        "logo": "https://media.api-sports.io/football/teams/1542.png"
-      },
-      "away": {
-        "id": 5535,
-        "name": "Pakistan",
-        "logo": "https://media.api-sports.io/football/teams/5535.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "1H",
+        "long": "First Half",
+        "elapsed": 11
       }
     },
     {
@@ -563,6 +503,66 @@
         "id": 5013,
         "name": "Brothers Union",
         "logo": "https://media.api-sports.io/football/teams/5013.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1641716,
+      "date": "2026-10-02T10:00:00+01:00",
+      "timestamp": 1790931600,
+      "league": {
+        "id": 1247,
+        "name": "FIFA Asean Cup",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/1247.png"
+      },
+      "home": {
+        "id": 1564,
+        "name": "Thailand",
+        "logo": "https://media.api-sports.io/football/teams/1564.png"
+      },
+      "away": {
+        "id": 1555,
+        "name": "Philippines",
+        "logo": "https://media.api-sports.io/football/teams/1555.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1641717,
+      "date": "2026-10-02T10:00:00+01:00",
+      "timestamp": 1790931600,
+      "league": {
+        "id": 1247,
+        "name": "FIFA Asean Cup",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/1247.png"
+      },
+      "home": {
+        "id": 1542,
+        "name": "Vietnam",
+        "logo": "https://media.api-sports.io/football/teams/1542.png"
+      },
+      "away": {
+        "id": 5535,
+        "name": "Pakistan",
+        "logo": "https://media.api-sports.io/football/teams/5535.png"
       },
       "goals": {
         "home": null,
@@ -1643,36 +1643,6 @@
         "id": 784,
         "name": "Würzburger Kickers",
         "logo": "https://media.api-sports.io/football/teams/784.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
-      }
-    },
-    {
-      "id": 1640074,
-      "date": "2026-10-02T12:00:00+01:00",
-      "timestamp": 1790938800,
-      "league": {
-        "id": 10,
-        "name": "Friendlies",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/10.png"
-      },
-      "home": {
-        "id": 1508,
-        "name": "Congo DR",
-        "logo": "https://media.api-sports.io/football/teams/1508.png"
-      },
-      "away": {
-        "id": 1519,
-        "name": "Uganda",
-        "logo": "https://media.api-sports.io/football/teams/1519.png"
       },
       "goals": {
         "home": null,
@@ -3293,6 +3263,36 @@
         "id": 20595,
         "name": "Wisła Kraków U19",
         "logo": "https://media.api-sports.io/football/teams/20595.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1640074,
+      "date": "2026-10-02T14:00:00+01:00",
+      "timestamp": 1790946000,
+      "league": {
+        "id": 10,
+        "name": "Friendlies",
+        "country": "World",
+        "logo": "https://media.api-sports.io/football/leagues/10.png"
+      },
+      "home": {
+        "id": 1508,
+        "name": "Congo DR",
+        "logo": "https://media.api-sports.io/football/teams/1508.png"
+      },
+      "away": {
+        "id": 1519,
+        "name": "Uganda",
+        "logo": "https://media.api-sports.io/football/teams/1519.png"
       },
       "goals": {
         "home": null,
