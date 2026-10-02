@@ -26,12 +26,12 @@
       },
       "goals": {
         "home": 0,
-        "away": 2
+        "away": 3
       },
       "status": {
-        "short": "2H",
-        "long": "Second Half",
-        "elapsed": 52
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -59,9 +59,9 @@
         "away": 2
       },
       "status": {
-        "short": "1H",
-        "long": "First Half",
-        "elapsed": 42
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -85,13 +85,13 @@
         "logo": "https://media.api-sports.io/football/teams/151.png"
       },
       "goals": {
-        "home": 0,
+        "home": 3,
         "away": 0
       },
       "status": {
-        "short": "1H",
-        "long": "First Half",
-        "elapsed": 13
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -115,13 +115,13 @@
         "logo": "https://media.api-sports.io/football/teams/4306.png"
       },
       "goals": {
-        "home": 0,
-        "away": 0
+        "home": 2,
+        "away": 1
       },
       "status": {
-        "short": "1H",
-        "long": "First Half",
-        "elapsed": 7
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -146,12 +146,12 @@
       },
       "goals": {
         "home": 0,
-        "away": 0
+        "away": 3
       },
       "status": {
-        "short": "1H",
-        "long": "First Half",
-        "elapsed": 12
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -175,13 +175,13 @@
         "logo": "https://media.api-sports.io/football/teams/2386.png"
       },
       "goals": {
-        "home": 0,
-        "away": 0
+        "home": 1,
+        "away": 4
       },
       "status": {
-        "short": "1H",
-        "long": "First Half",
-        "elapsed": 3
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -205,13 +205,13 @@
         "logo": "https://media.api-sports.io/football/teams/450.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 0
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -235,13 +235,13 @@
         "logo": "https://media.api-sports.io/football/teams/15702.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 1
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "FT",
+        "long": "Match Finished",
+        "elapsed": 90
       }
     },
     {
@@ -295,13 +295,13 @@
         "logo": "https://media.api-sports.io/football/teams/1611.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 1,
+        "away": 1
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "2H",
+        "long": "Second Half",
+        "elapsed": 73
       }
     },
     {
@@ -325,13 +325,13 @@
         "logo": "https://media.api-sports.io/football/teams/29.png"
       },
       "goals": {
-        "home": null,
-        "away": null
+        "home": 0,
+        "away": 0
       },
       "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
+        "short": "2H",
+        "long": "Second Half",
+        "elapsed": 53
       }
     },
     {
@@ -3845,36 +3845,6 @@
       }
     },
     {
-      "id": 1587495,
-      "date": "2026-10-02T15:00:00+01:00",
-      "timestamp": 1790949600,
-      "league": {
-        "id": 87,
-        "name": "Regionalliga - West",
-        "country": "Germany",
-        "logo": "https://media.api-sports.io/football/leagues/87.png"
-      },
-      "home": {
-        "id": 9373,
-        "name": "Schalke 04 II",
-        "logo": "https://media.api-sports.io/football/teams/9373.png"
-      },
-      "away": {
-        "id": 9371,
-        "name": "Köln II",
-        "logo": "https://media.api-sports.io/football/teams/9371.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "PST",
-        "long": "Match Postponed",
-        "elapsed": null
-      }
-    },
-    {
       "id": 1632088,
       "date": "2026-10-02T15:00:00+01:00",
       "timestamp": 1790949600,
@@ -4505,36 +4475,6 @@
       }
     },
     {
-      "id": 1583935,
-      "date": "2026-10-02T16:00:00+01:00",
-      "timestamp": 1790953200,
-      "league": {
-        "id": 1026,
-        "name": "Second League A - Division A Silver",
-        "country": "Russia",
-        "logo": "https://media.api-sports.io/football/leagues/1026.png"
-      },
-      "home": {
-        "id": 1076,
-        "name": "Amkar",
-        "logo": "https://media.api-sports.io/football/teams/1076.png"
-      },
-      "away": {
-        "id": 16864,
-        "name": "Torpedo Miass",
-        "logo": "https://media.api-sports.io/football/teams/16864.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
-      }
-    },
-    {
       "id": 1583936,
       "date": "2026-10-02T16:00:00+01:00",
       "timestamp": 1790953200,
@@ -4643,36 +4583,6 @@
         "id": 26208,
         "name": "Valenii de Munte",
         "logo": "https://media.api-sports.io/football/teams/26208.png"
-      },
-      "goals": {
-        "home": null,
-        "away": null
-      },
-      "status": {
-        "short": "NS",
-        "long": "Not Started",
-        "elapsed": null
-      }
-    },
-    {
-      "id": 1642925,
-      "date": "2026-10-02T16:00:00+01:00",
-      "timestamp": 1790953200,
-      "league": {
-        "id": 667,
-        "name": "Friendlies Clubs",
-        "country": "World",
-        "logo": "https://media.api-sports.io/football/leagues/667.png"
-      },
-      "home": {
-        "id": 3400,
-        "name": "Ermis",
-        "logo": "https://media.api-sports.io/football/teams/3400.png"
-      },
-      "away": {
-        "id": 3401,
-        "name": "Nea Salamis",
-        "logo": "https://media.api-sports.io/football/teams/3401.png"
       },
       "goals": {
         "home": null,
@@ -8813,6 +8723,36 @@
         "id": 2388,
         "name": "Cuba",
         "logo": "https://media.api-sports.io/football/teams/2388.png"
+      },
+      "goals": {
+        "home": null,
+        "away": null
+      },
+      "status": {
+        "short": "NS",
+        "long": "Not Started",
+        "elapsed": null
+      }
+    },
+    {
+      "id": 1500140,
+      "date": "2026-10-02T22:30:00+01:00",
+      "timestamp": 1790976600,
+      "league": {
+        "id": 132,
+        "name": "Primera C",
+        "country": "Argentina",
+        "logo": "https://media.api-sports.io/football/leagues/132.png"
+      },
+      "home": {
+        "id": 8392,
+        "name": "Defensores de Cambaceres",
+        "logo": "https://media.api-sports.io/football/teams/8392.png"
+      },
+      "away": {
+        "id": 1964,
+        "name": "Victoriano Arenas",
+        "logo": "https://media.api-sports.io/football/teams/1964.png"
       },
       "goals": {
         "home": null,
